@@ -50,7 +50,7 @@ export default function VirtualTour() {
             "title": "Admin Block Inside",
             "panorama": "admin_inside.jpeg",
             "hotSpots": [
-              { "pitch": -5, "yaw": 60, "type": "scene", "text": "Go back outside Admin Block", "sceneId": "main_gate" },
+              { "pitch": -5, "yaw": 60, "type": "scene", "text": "Go back outside Admin Block", "sceneId": "admin_block" },
               { "pitch": -5, "yaw": -150, "type": "scene", "text": "Go to KRC", "sceneId": "krc" },
               { "pitch": -5, "yaw": -138, "type": "scene", "text": "Go to Central Library", "sceneId": "central_library" }
             ]
@@ -76,7 +76,7 @@ export default function VirtualTour() {
             "panorama": "uit.jpeg",
             "hotSpots": [
               { "pitch": -5, "yaw": 160, "type": "scene", "text": "Go to KRC", "sceneId": "krc" },
-              { "pitch": -5, "yaw": -45, "type": "scene", "text": "Go to ECE Department", "sceneId": "ece_dept" },
+              { "pitch": -5, "yaw": -45, "type": "scene", "text": "Go to Civil Department", "sceneId": "civil_dept" },
               { "pitch": -5, "yaw": 120, "type": "scene", "text": "Go back to Library", "sceneId": "central_library" }
             ]
           },
@@ -93,7 +93,7 @@ export default function VirtualTour() {
             "panorama": "civil_dept.jpeg",
             "hotSpots": [
               { "pitch": 0, "yaw": -103, "type": "scene", "text": "Go to SoIT", "sceneId": "soit_main" },
-              { "pitch": -5, "yaw": 130, "type": "scene", "text": "Go to ECE Department", "sceneId": "ece_dept" }
+              { "pitch": -5, "yaw": 130, "type": "scene", "text": "Go to UIT", "sceneId": "uit" }
             ]
           },
           "soit_main": {
@@ -128,7 +128,7 @@ export default function VirtualTour() {
               { "pitch": 0, "yaw": -110, "type": "scene", "text": "Cyber Lab", "sceneId": "cyber_lab" },
               { "pitch": 0, "yaw": -170, "type": "scene", "text": "Washroom", "sceneId": "washroom" },
               { "pitch": 0, "yaw": 45, "type": "scene", "text": "Office", "sceneId": "office" },
-              { "pitch": 0, "yaw": 120, "type": "scene", "text": "Way to 2nd Floor", "sceneId": "way_2nd" }
+              { "pitch": 0, "yaw": 120, "type": "scene", "text": "Way to 2nd Floor", "sceneId": "corr_2nd" }
             ]
           },
           "cyber_lab": {
@@ -196,7 +196,7 @@ export default function VirtualTour() {
             "title": "2nd Floor Corridor",
             "panorama": "2nd_Floor_Corridoor.jpeg",
             "hotSpots": [
-              { "pitch": -10, "yaw": 80, "type": "scene", "text": "Down to Way 2nd Floor", "sceneId": "way_2nd" },
+              { "pitch": -10, "yaw": 80, "type": "scene", "text": "Down to Way 2nd Floor", "sceneId": "first_floor" },
               { "pitch": 0, "yaw": 128, "type": "scene", "text": "Terrace", "sceneId": "terrace" },
               { "pitch": 0, "yaw": -15, "type": "scene", "text": "AIML Class", "sceneId": "aiml_class" }
             ]
@@ -204,7 +204,7 @@ export default function VirtualTour() {
           "terrace": {
             "title": "Terrace",
             "panorama": "Terrace.jpeg",
-            "hotSpots": [{ "pitch": 0, "yaw": 180, "type": "scene", "text": "Back to 2nd Floor", "sceneId": "corr_2nd" }]
+            "hotSpots": [{ "pitch": 0, "yaw": 85, "type": "scene", "text": "Back to 2nd Floor", "sceneId": "corr_2nd" }]
           },
           "aiml_class": {
             "title": "AIML Class",
@@ -221,6 +221,7 @@ export default function VirtualTour() {
               if (hotSpot.text) {
                 hotSpot.createTooltipFunc = customHotspot;
                 hotSpot.createTooltipArgs = hotSpot.text;
+                hotSpot.cssClass = 'glass-hotspot';
               }
 
               if (hotSpot.type === "scene") {
@@ -325,21 +326,74 @@ export default function VirtualTour() {
           transform: scale(1.5);
         }
         
+        .glass-hotspot {
+          width: 44px;
+          height: 44px;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          border-radius: 50%;
+          cursor: pointer;
+          /* Removed transition of positioning to ensure they stick exactly to their coordinates */
+          transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.2);
+          opacity: 0;
+          animation: fadePop 0.4s ease-out 0.1s forwards;
+        }
+
+        @keyframes fadePop {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+        .glass-hotspot::after {
+          content: '';
+          position: absolute;
+          top: 48%;
+          left: 50%;
+          width: 14px;
+          height: 14px;
+          border-top: 3px solid white;
+          border-right: 3px solid white;
+          transform: translate(-50%, -50%) rotate(-45deg);
+          transition: transform 0.3s ease;
+        }
+
+        .glass-hotspot:hover {
+          background: rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          box-shadow: 0 6px 12px rgba(0,0,0,0.15), inset 0 0 15px rgba(255,255,255,0.4);
+        }
+
+        .glass-hotspot:hover::after {
+          transform: translate(-50%, -50%) rotate(-45deg) scale(1.15);
+        }
+
         .custom-hotspot-text {
           position: absolute;
-          top: 30px; 
+          top: 55px; 
           left: 50%;
           transform: translateX(-50%);
-          background: rgba(0, 0, 0, 0.7);
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
           color: white;
-          padding: 4px 8px;
-          border-radius: 4px;
-          font-size: 10px; 
+          padding: 6px 12px;
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          font-size: 13px; 
           font-weight: 500;
           white-space: nowrap;
           pointer-events: none; 
           text-align: center;
           font-family: inherit;
+          transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .glass-hotspot:hover .custom-hotspot-text {
+          transform: translate(-50%, -2px);
+          background: rgba(0, 0, 0, 0.7);
         }
 
         .pnlm-tooltip {
