@@ -62,6 +62,7 @@ const PageContent = () => {
             relative h-[40vh] overflow-hidden
             md:h-[55vh]
           "
+          data-tour="student-life-hero"
           
         >
           <div
@@ -114,6 +115,7 @@ const PageContent = () => {
                 lg:mb-0 lg:w-72 lg:max-w-[18rem] lg:min-w-[18rem] lg:border-r
                 lg:pr-6
               "
+              data-tour="student-life-sidebar-nav"
             >
               <div className="
                 relative
@@ -137,12 +139,24 @@ const PageContent = () => {
             >
 
               {/* <CampusLifeSection /> */}
-              <AcademicBlocksSection />
-              <EventsSection />
-              <StudentEngagementSection />
-              <ClubsCommitteesSection />
-              <CityOfBhopalSection />
-              <ConnectSection />
+              <div data-tour="student-life-academic-blocks">
+                <AcademicBlocksSection />
+              </div>
+              <div data-tour="student-life-events">
+                <EventsSection />
+              </div>
+              <div data-tour="student-life-student-engagement">
+                <StudentEngagementSection />
+              </div>
+              <div data-tour="student-life-clubs">
+                <ClubsCommitteesSection />
+              </div>
+              <div data-tour="student-life-city-bhopal">
+                <CityOfBhopalSection />
+              </div>
+              <div data-tour="student-life-connect">
+                <ConnectSection />
+              </div>
             </div>
           </div>
         </div>

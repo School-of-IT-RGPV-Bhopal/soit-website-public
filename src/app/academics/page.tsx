@@ -13,8 +13,12 @@ export default function AcademicsPage() {
 
   return (
     <>
-      <Programs />
-      <Admissions />
+      <div data-tour="academics-programs">
+        <Programs />
+      </div>
+      <div data-tour="academics-admissions">
+        <Admissions />
+      </div>
     </>
   );
 }

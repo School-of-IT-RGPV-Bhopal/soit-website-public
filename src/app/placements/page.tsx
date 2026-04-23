@@ -42,30 +42,32 @@ export default function PlacementsPage() {
 
   return (
     <>
-      <HeroSection />
+      <div data-tour="placements-hero">
+        <HeroSection />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl bg-white px-6">
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-why-recruit">
           <WhyRecruitFromUs />
         </div>
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-message">
           <Message />
         </div>
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-highlights">
           <PlacementHighlight />
         </div>
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-trends">
           <PlacementTrends />
         </div>
         {/* <div className="fade-up"><PlacementStatistics /></div> */}
         {/* commented out because for now only CSBS batch passed */}
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-recruiters">
           <Recruiters />
         </div>
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-testimonials">
           <Testimonial />
         </div>
-        <div className="fade-up">
+        <div className="fade-up" data-tour="placements-contact">
           <ContactPlacement />
         </div>
       </div>
