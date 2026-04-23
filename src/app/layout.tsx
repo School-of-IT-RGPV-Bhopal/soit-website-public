@@ -10,7 +10,7 @@ import "./globals.css";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import SplashScreen from "@components/SplashScreen";
-import TourProvider from "../src/lib/tour/TourProvider";
+import TourProvider from "@lib/tour/TourProvider";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";

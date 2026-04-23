@@ -1,4 +1,4 @@
-import Recruiters from "../app/placements/Recruiters";
+import Recruiters from "@app/placements/Recruiters";
 
 export default function Placements() {
   const placementStats = [

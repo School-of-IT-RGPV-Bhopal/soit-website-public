@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
-import { setupFadeUpAnimations } from '../../utils/animations';
-import FacultyMentorCard from '../../components/credits/FacultyMentorCard';
-import LeadershipCard from '../../components/credits/LeadershipCard';
-import StudentCard from '../../components/credits/StudentCard';
-import PhotographyCard from '../../components/credits/PhotographyCard';
-import SectionHeader from '../../components/credits/SectionHeader';
-import AcknowledgmentSection from '../../components/credits/AcknowledgmentSection';
+import { setupFadeUpAnimations } from "@utils/animations";
+import FacultyMentorCard from "@components/credits/FacultyMentorCard";
+import LeadershipCard from "@components/credits/LeadershipCard";
+import StudentCard from "@components/credits/StudentCard";
+import PhotographyCard from "@components/credits/PhotographyCard";
+import SectionHeader from "@components/credits/SectionHeader";
+import AcknowledgmentSection from "@components/credits/AcknowledgmentSection";
 
 const facultyMentors = [
   {

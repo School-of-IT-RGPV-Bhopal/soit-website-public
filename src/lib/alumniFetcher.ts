@@ -1,6 +1,7 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-import { withCache } from './cache';
+import { withCache } from '@lib/cache';
+
 
 export interface AlumniMember {
   id: number;

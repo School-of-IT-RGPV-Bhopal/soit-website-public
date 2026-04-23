@@ -86,7 +86,7 @@ function CategoryCard({ category }: { category: Category }) {
           {category.achievements.map((achievement, idx) => (
             <li key={idx} className="flex gap-2.5 text-sm text-slate-700">
               <span
-                className={cx("mt-[7px] size-1.5 shrink-0 rounded-full", category.dot)}
+                className={cx("mt-1.75 size-1.5 shrink-0 rounded-full", category.dot)}
                 aria-hidden="true"
               />
               <span className="leading-snug">{achievement}</span>
