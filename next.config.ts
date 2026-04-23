@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ["lucide-react", "react-icons"],
+    mcpServer: true,
   },
   images: {
     remotePatterns: [
@@ -21,7 +22,7 @@ const nextConfig: NextConfig = {
         hostname: "lh3.googleusercontent.com",
       },
     ],
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
@@ -29,73 +30,73 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  
+
   // Security headers
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY'
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          }
-        ]
-      }
-    ]
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
   },
 
   // Redirects for SEO
   async redirects() {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: "/home",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/index',
-        destination: '/',
+        source: "/index",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/placement',
-        destination: '/placements',
+        source: "/placement",
+        destination: "/placements",
         permanent: true,
       },
       {
-        source: '/achievement',
-        destination: '/student-achievements',
+        source: "/achievement",
+        destination: "/student-achievements",
         permanent: true,
       },
       {
-        source: '/achievements',
-        destination: '/student-achievements',
+        source: "/achievements",
+        destination: "/student-achievements",
         permanent: true,
       },
       {
-        source: '/facility',
-        destination: '/amenities',
+        source: "/facility",
+        destination: "/amenities",
         permanent: true,
       },
       {
-        source: '/facilities',
-        destination: '/amenities',
+        source: "/facilities",
+        destination: "/amenities",
         permanent: true,
       },
-    ]
+    ];
   },
 };
 

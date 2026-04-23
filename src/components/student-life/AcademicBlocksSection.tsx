@@ -95,7 +95,7 @@ const AcademicBlocksSection = () => {
               }`}
             >
               {/* Image */}
-              <div className="relative w-full overflow-hidden rounded-xl aspect-[4/3] sm:aspect-[16/10] md:aspect-[5/4]">
+              <div className="relative w-full overflow-hidden rounded-xl aspect-4/3 sm:aspect-16/10 md:aspect-5/4">
                 <Image
                   src={block.imageUrl}
                   alt={block.title}

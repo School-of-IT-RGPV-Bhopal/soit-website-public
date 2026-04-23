@@ -20,6 +20,14 @@ const SERVICE_UNAVAILABLE_STATUS = 503;
 const HISTORY_LIMIT = 6;
 const MODEL_NAME = process.env.GEMINI_AGENT_MODEL ?? "gemini-1.5-flash";
 
+function toErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return "Unknown error";
+}
+
 function methodNotAllowed() {
   return NextResponse.json(
     { error: "Method not allowed" },
@@ -72,6 +80,19 @@ export async function POST(request: Request) {
     ? body.history.filter(isValidHistoryItem)
     : [];
 
+  if (!process.env.GEMINI_API_KEY) {
+    return NextResponse.json(
+      {
+        error: "Service unavailable",
+        details:
+          process.env.NODE_ENV === "development"
+            ? "GEMINI_API_KEY is not configured."
+            : undefined,
+      },
+      { status: SERVICE_UNAVAILABLE_STATUS },
+    );
+  }
+
   try {
     const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
     const chat = genAI.chats.create({
@@ -108,9 +129,20 @@ export async function POST(request: Request) {
         "Content-Type": "text/plain; charset=utf-8",
       },
     });
-  } catch {
+  } catch (error) {
+    const errorMessage = toErrorMessage(error);
+
+    console.error("/api/faq-chat failed:", {
+      model: MODEL_NAME,
+      error: errorMessage,
+    });
+
     return NextResponse.json(
-      { error: "Service unavailable" },
+      {
+        error: "Service unavailable",
+        details:
+          process.env.NODE_ENV === "development" ? errorMessage : undefined,
+      },
       { status: SERVICE_UNAVAILABLE_STATUS },
     );
   }

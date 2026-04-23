@@ -284,6 +284,15 @@ export default function Footer() {
                   Analytics
                 </Link>
                 <Link
+                  href="/faq"
+                  className="
+                    block text-sm font-medium text-gray-600 transition-colors
+                    hover:text-black
+                  "
+                >
+                  FAQ
+                </Link>
+                <Link
                   href="/contact"
                   className="
                     block text-sm font-medium text-gray-600 transition-colors
@@ -343,6 +352,16 @@ export default function Footer() {
                 "
               >
                 Contact
+              </Link>
+              <span className="text-gray-300">|</span>
+              <Link
+                href="/faq"
+                className="
+                  text-gray-600 transition-colors
+                  hover:text-secondary
+                "
+              >
+                FAQ
               </Link>
             </div>
           </div>

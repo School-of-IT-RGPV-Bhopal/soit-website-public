@@ -10,6 +10,7 @@ import "./globals.css";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import SplashScreen from "@components/SplashScreen";
+import ChatWidget from "@components/faq/ChatWidget";
 import TourProvider from "@lib/tour/TourProvider";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -394,6 +395,7 @@ export default function RootLayout({
         <Footer />
         <SpeedInsights />
         <Analytics />
+        <ChatWidget />
       </body>
 
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />

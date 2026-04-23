@@ -121,7 +121,7 @@ function CertificationCard({
           <ul className="mt-3 space-y-2">
             {cert.certifications.map((name, idx) => (
               <li key={idx} className="flex gap-2 text-sm text-slate-700">
-                <span className={cx("mt-[7px] size-1.5 rounded-full", cert.accent)} />
+                <span className={cx("mt-1.75 size-1.5 rounded-full", cert.accent)} />
                 <span className="leading-relaxed">{name}</span>
               </li>
             ))}

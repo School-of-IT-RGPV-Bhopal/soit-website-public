@@ -237,6 +237,13 @@ export default function Header() {
               )}
             </div>
 
+            <Link href="/faq" className="
+              font-medium text-gray-700 transition-colors
+              hover:text-primary
+            ">
+              FAQ
+            </Link>
+
             <Link href="/contact" className="
               font-medium text-gray-700 transition-colors
               hover:text-primary
@@ -377,8 +384,16 @@ export default function Header() {
             </Link>
           </div>
 
-          <Link href="/contact" className="
+          <Link href="/faq" className="
             mt-2 block border-t border-gray-100 py-2 pt-2 font-medium
+            text-gray-700
+            hover:text-primary
+          " onClick={() => setMobileMenuOpen(false)}>
+            FAQ
+          </Link>
+
+          <Link href="/contact" className="
+            block py-2 font-medium
             text-gray-700
             hover:text-primary
           " onClick={() => setMobileMenuOpen(false)}>
