@@ -2,9 +2,6 @@ import LiveStats from "@components/analytics/LiveStats";
 
 const analyticsHeroImage = "/images/analytics.jpg";
 
-const campusHero = "/images/soitrgpv_building.png";
-
-
 export default function AnalyticsDashboard() {
   return (
     <>
