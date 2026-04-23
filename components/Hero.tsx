@@ -7,7 +7,10 @@ export default function Hero() {
   const displayYear = getAcademicYear();
 
   return (
-    <section className="flex items-center justify-center overflow-hidden pt-10">
+    <section
+      className="flex items-center justify-center overflow-hidden pt-10"
+      data-tour="home-hero-section"
+    >
       <div
         className="
           px-5 pb-10
@@ -38,6 +41,7 @@ export default function Hero() {
             </span>
 
             <h1
+              data-tour="home-hero-headline"
               className="
                 mb-6 max-w-xs font-poppins text-4xl/tight leading-tight
                 font-bold
@@ -130,6 +134,7 @@ export default function Hero() {
               <Link
                 href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
                 target="_blank"
+                data-tour="home-apply-cta"
                 className="
                   btn-primary transform bg-accent text-white shadow-lg
                   transition-all

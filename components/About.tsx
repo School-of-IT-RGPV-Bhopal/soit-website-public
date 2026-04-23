@@ -95,7 +95,11 @@ export default function About() {
     };
   }, []);
   return (
-    <section id="about" className="section-container bg-white">
+    <section
+      id="about"
+      className="section-container bg-white"
+      data-tour="home-about-section"
+    >
       <div className="container mx-auto">
         <div
           className="
@@ -164,6 +168,7 @@ export default function About() {
               sm:grid-cols-2
             ">
               <div
+                data-tour="home-vision-card"
                 className="
                   group transform cursor-pointer rounded-lg bg-gray-50 p-4
                   transition-all duration-300

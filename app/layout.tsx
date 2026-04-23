@@ -10,6 +10,7 @@ import "./globals.css";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import SplashScreen from "@components/SplashScreen";
+import TourProvider from "../src/lib/tour/TourProvider";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -326,7 +327,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"
@@ -383,6 +384,7 @@ export default function RootLayout({
         `}
       >
         <SplashScreen />
+        <TourProvider />
         <div className="fixed inset-x-0 top-0 z-50 flex flex-col">
           {/* <ConstructionBanner /> */}
           <Header />

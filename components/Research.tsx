@@ -97,7 +97,11 @@ export default function Research() {
   ];
 
   return (
-    <section id="research" className="bg-white">
+    <section
+      id="research"
+      className="bg-white"
+      data-tour="home-research-section"
+    >
       <div className="container mx-auto">
         <div className="mb-12 fade-up text-center">
           <h2

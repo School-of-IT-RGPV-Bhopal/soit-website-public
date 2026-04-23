@@ -1,8 +1,33 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { withCache } from "./cache";
 import { JWTInput } from "google-auth-library";
+import cacheManager from "./cache";
 
 let analyticsClient: BetaAnalyticsDataClient | null = null;
+
+const getActiveUsersCacheKey = (propertyId: string) => {
+  return `analytics:activeUsers:${propertyId}`;
+};
+
+const getCountriesCacheKey = (propertyId: string, days: number) => {
+  return `analytics:countries:${propertyId}:${days}`;
+};
+
+const getPageViewsCacheKey = (propertyId: string, days: number) => {
+  return `analytics:pageviews:${propertyId}:${days}`;
+};
+
+export function clearActiveUsersCache(propertyId: string): void {
+  cacheManager.delete(getActiveUsersCacheKey(propertyId));
+}
+
+export function clearAggregateAnalyticsCache(
+  propertyId: string,
+  days: number = 30,
+): void {
+  cacheManager.delete(getCountriesCacheKey(propertyId, days));
+  cacheManager.delete(getPageViewsCacheKey(propertyId, days));
+}
 
 export function initializeAnalyticsClient(): BetaAnalyticsDataClient {
   if (analyticsClient) {
@@ -34,7 +59,7 @@ export function initializeAnalyticsClient(): BetaAnalyticsDataClient {
 export async function getActiveUsers(
   propertyId: string
 ): Promise<number> {
-  return withCache(`analytics:activeUsers:${propertyId}`, async () => {
+  return withCache(getActiveUsersCacheKey(propertyId), async () => {
     const client = initializeAnalyticsClient();
 
     try {
@@ -56,7 +81,7 @@ export async function getActiveUsers(
       console.error("Error fetching active users:", error);
       throw error;
     }
-  }, 5); // Cache for 5 minutes (real-time data)
+  }, 3); // Cache for 3 minutes (real-time data)
 }
 
 export async function getCountryBreakdown(
@@ -64,7 +89,7 @@ export async function getCountryBreakdown(
   days: number = 30
 ): Promise<Array<{ country: string; users: number }>> {
   return withCache(
-    `analytics:countries:${propertyId}:${days}`,
+    getCountriesCacheKey(propertyId, days),
     async () => {
       const client = initializeAnalyticsClient();
 
@@ -131,7 +156,7 @@ export async function getPageViews(
   days: number = 30
 ): Promise<number> {
   return withCache(
-    `analytics:pageviews:${propertyId}:${days}`,
+    getPageViewsCacheKey(propertyId, days),
     async () => {
       const client = initializeAnalyticsClient();
 

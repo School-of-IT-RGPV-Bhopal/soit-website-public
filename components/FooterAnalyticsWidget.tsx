@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 interface AnalyticsData {
-  activeUsers: number;
   pageViews: number;
   countries: Array<{ country: string; users: number }>;
 }

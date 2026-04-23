@@ -68,7 +68,7 @@ export default function AnalyticsDashboard() {
           md:py-24
         "
       >
-        <LiveStats />
+        <LiveStats forceRefreshOnMount />
       </section>
     </>
   );

@@ -470,7 +470,11 @@ export default function Faculty() {
   }, []);
 
   return (
-    <section id="faculty" className="w-full overflow-hidden bg-gray-50">
+    <section
+      id="faculty"
+      className="w-full overflow-hidden bg-gray-50"
+      data-tour="home-faculty-section"
+    >
       <div className="section-container">
         {/* Header */}
         <div

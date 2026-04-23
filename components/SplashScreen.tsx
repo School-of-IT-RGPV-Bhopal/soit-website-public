@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const SPLASH_STORAGE_KEY = "splash_seen_v1";
 const FADE_DURATION_MS = 280;
+const SPLASH_DISMISSED_EVENT = "soit:splash-dismissed";
 
 export default function SplashScreen() {
   const [isMounted, setIsMounted] = useState(false);
@@ -77,6 +78,11 @@ export default function SplashScreen() {
 
     closeTimerRef.current = window.setTimeout(() => {
       setIsMounted(false);
+
+      // Emit after the unmount render so tour startup can detect no splash.
+      window.requestAnimationFrame(() => {
+        window.dispatchEvent(new Event(SPLASH_DISMISSED_EVENT));
+      });
     }, FADE_DURATION_MS);
   }, [isActive, isMounted]);
 
@@ -88,6 +94,7 @@ export default function SplashScreen() {
     <button
       type="button"
       onClick={handleDismiss}
+      data-splash-screen="active"
       className={`fixed inset-0 z-1000 flex w-full items-center justify-center bg-white/95 px-6 text-center backdrop-blur-sm transition-opacity duration-300 ease-out ${
         isActive ? "cursor-pointer opacity-100" : "pointer-events-none opacity-0"
       }`}

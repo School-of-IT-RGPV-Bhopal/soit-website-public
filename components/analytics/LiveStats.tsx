@@ -3,29 +3,49 @@
 import { useEffect, useState } from "react";
 
 interface AnalyticsData {
-  activeUsers: number;
   pageViews: number;
   countries: Array<{ country: string; users: number }>;
   lastUpdated: string;
 }
 
-export default function LiveStats() {
+interface ActiveUsersData {
+  activeUsers: number;
+  lastUpdated: string;
+}
+
+interface LiveStatsProps {
+  forceRefreshOnMount?: boolean;
+}
+
+const ACTIVE_USERS_REFRESH_MS = 180000;
+const STATS_REFRESH_MS = 900000;
+
+export default function LiveStats({
+  forceRefreshOnMount = false,
+}: LiveStatsProps) {
   const [data, setData] = useState<AnalyticsData | null>(null);
+  const [activeUsersData, setActiveUsersData] =
+    useState<ActiveUsersData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeUsersLoading, setActiveUsersLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchAnalytics = async () => {
+    const fetchAnalytics = async (forceRefresh: boolean = false) => {
       try {
         setLoading(true);
         setError(null);
 
-        const response = await fetch("/api/analytics/stats");
+        const query = forceRefresh ? "?forceRefresh=1" : "";
+
+        const response = await fetch(`/api/analytics/stats${query}`, {
+          cache: forceRefresh ? "no-store" : "default",
+        });
 
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(
-            errorData.error || "Failed to fetch analytics data"
+            errorData.error || "Failed to fetch analytics data",
           );
         }
 
@@ -36,40 +56,76 @@ export default function LiveStats() {
           throw new Error(result.error || "Failed to fetch analytics");
         }
       } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "An error occurred"
-        );
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchAnalytics();
+    const fetchActiveUsers = async (forceRefresh: boolean = false) => {
+      try {
+        setActiveUsersLoading(true);
 
-    // Refresh every 15 minutes
-    const interval = setInterval(fetchAnalytics, 900000);
+        const query = forceRefresh ? "?forceRefresh=1" : "";
 
-    return () => clearInterval(interval);
-  }, []);
+        const response = await fetch(`/api/analytics/active-users${query}`, {
+          cache: forceRefresh ? "no-store" : "default",
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(
+            errorData.error || "Failed to fetch active users data",
+          );
+        }
+
+        const result = await response.json();
+        if (result.success) {
+          setActiveUsersData(result.data);
+        } else {
+          throw new Error(result.error || "Failed to fetch active users");
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setActiveUsersLoading(false);
+      }
+    };
+
+    fetchAnalytics(forceRefreshOnMount);
+    fetchActiveUsers(forceRefreshOnMount);
+
+    const statsInterval = setInterval(() => {
+      fetchAnalytics(false);
+    }, STATS_REFRESH_MS);
+
+    const activeUsersInterval = setInterval(() => {
+      fetchActiveUsers(false);
+    }, ACTIVE_USERS_REFRESH_MS);
+
+    return () => {
+      clearInterval(statsInterval);
+      clearInterval(activeUsersInterval);
+    };
+  }, [forceRefreshOnMount]);
 
   const getCountryFlag = (countryCode: string): string => {
-    // Map country names to country codes
     const countryCodeMap: Record<string, string> = {
-      "India": "🇮🇳",
+      India: "🇮🇳",
       "United States": "🇺🇸",
       "United Kingdom": "🇬🇧",
-      "Canada": "🇨🇦",
-      "Australia": "🇦🇺",
-      "Germany": "🇩🇪",
-      "France": "🇫🇷",
-      "Japan": "🇯🇵",
-      "China": "🇨🇳",
-      "Brazil": "🇧🇷",
-      "Mexico": "🇲🇽",
-      "Singapore": "🇸🇬",
-      "Netherlands": "🇳🇱",
-      "Sweden": "🇸🇪",
-      "Switzerland": "🇨🇭",
+      Canada: "🇨🇦",
+      Australia: "🇦🇺",
+      Germany: "🇩🇪",
+      France: "🇫🇷",
+      Japan: "🇯🇵",
+      China: "🇨🇳",
+      Brazil: "🇧🇷",
+      Mexico: "🇲🇽",
+      Singapore: "🇸🇬",
+      Netherlands: "🇳🇱",
+      Sweden: "🇸🇪",
+      Switzerland: "🇨🇭",
     };
 
     return countryCodeMap[countryCode] || "🌍";
@@ -104,41 +160,49 @@ export default function LiveStats() {
       </div>
 
       {/* Main Stats Grid */}
-      <div className="
-        grid grid-cols-1 gap-6
-        md:grid-cols-2
-      ">
+      <div
+        className="
+          grid grid-cols-1 gap-6
+          md:grid-cols-2
+        "
+      >
         {/* Active Users Card */}
-        <div className="
-          overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
-          from-blue-50 to-cyan-50 p-8 shadow-lg
-        ">
+        <div
+          className="
+            overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
+            from-blue-50 to-cyan-50 p-8 shadow-lg
+          "
+        >
           <div className="flex items-start justify-between">
             <div>
               <p className="mb-2 text-sm font-semibold text-gray-600">
                 ACTIVE USERS NOW
               </p>
-              {loading ? (
+              {activeUsersLoading ? (
                 <div className="h-10 w-24 animate-pulse rounded-sm bg-gray-300" />
               ) : (
                 <p className="text-5xl font-bold text-blue-600">
-                  {data?.activeUsers ?? 0}
+                  {activeUsersData?.activeUsers ?? 0}
                 </p>
               )}
             </div>
-            <div className="
-              flex size-16 items-center justify-center rounded-full bg-blue-100
-            ">
+            <div
+              className="
+                flex size-16 items-center justify-center rounded-full bg-blue-100
+              "
+            >
               <span className="text-3xl">👥</span>
             </div>
           </div>
         </div>
 
         {/* Page Views Card */}
-        <div className="
-          overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
-          from-purple-50 to-pink-50 p-8 shadow-lg
-        ">
+        <div
+          className="
+            overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
+            from-purple-50 to-pink-50 p-8 shadow-lg
+          "
+        >
           <div className="flex items-start justify-between">
             <div>
               <p className="mb-2 text-sm font-semibold text-gray-600">
@@ -152,10 +216,12 @@ export default function LiveStats() {
                 </p>
               )}
             </div>
-            <div className="
-              flex size-16 items-center justify-center rounded-full
-              bg-purple-100
-            ">
+            <div
+              className="
+                flex size-16 items-center justify-center rounded-full
+                bg-purple-100
+              "
+            >
               <span className="text-3xl">📊</span>
             </div>
           </div>
@@ -163,13 +229,13 @@ export default function LiveStats() {
       </div>
 
       {/* Top Countries Table */}
-      <div className="
-        overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg
-      ">
+      <div
+        className="
+          overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg
+        "
+      >
         <div className="border-b border-gray-200 px-8 py-6">
-          <h3 className="text-xl font-bold text-gray-900">
-            Top 5 Countries
-          </h3>
+          <h3 className="text-xl font-bold text-gray-900">Top 5 Countries</h3>
           <p className="text-sm text-gray-600">
             Visitor distribution by country (last 30 days)
           </p>
@@ -202,9 +268,7 @@ export default function LiveStats() {
                     <p className="font-medium text-gray-900">
                       {country.country}
                     </p>
-                    <p className="text-xs text-gray-500">
-                      Rank #{index + 1}
-                    </p>
+                    <p className="text-xs text-gray-500">Rank #{index + 1}</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -212,9 +276,9 @@ export default function LiveStats() {
                     {country.users}
                   </p>
                   <p className="text-xs text-gray-500">
-                    {data.activeUsers > 0
+                    {(activeUsersData?.activeUsers ?? 0) > 0
                       ? (
-                          ((country.users / data.activeUsers) *
+                          ((country.users / (activeUsersData?.activeUsers ?? 0)) *
                             100) *
                           0.01
                         ).toFixed(1) + "%"
@@ -232,14 +296,21 @@ export default function LiveStats() {
       </div>
 
       {/* Footer Info */}
-      <div className="
-        rounded-lg border border-gray-100 bg-gray-50 p-4 text-center text-xs
-        text-gray-600
-      ">
+      <div
+        className="
+          rounded-lg border border-gray-100 bg-gray-50 p-4 text-center text-xs
+          text-gray-600
+        "
+      >
         {data?.lastUpdated && (
           <>
-            Last updated:{" "}
-            {new Date(data.lastUpdated).toLocaleTimeString()}
+            Last updated: {new Date(data.lastUpdated).toLocaleTimeString()}
+          </>
+        )}
+        {activeUsersData?.lastUpdated && (
+          <>
+            {" "}| Active users synced: {" "}
+            {new Date(activeUsersData.lastUpdated).toLocaleTimeString()}
           </>
         )}
       </div>
