@@ -1,0 +1,66 @@
+{
+  "siteName": "SoIT — School of Information Technology (RGPV)",
+  "baseUrl": "https://soitrgpv.ac.in",
+  "sections": [
+    {
+      "id": "home",
+      "name": "Home",
+      "path": "/",
+      "description": "School of Information Technology at RGPV"
+    },
+    {
+      "id": "about",
+      "name": "About",
+      "path": "/#about",
+      "description": "About the School of Information Technology"
+    },
+    {
+      "id": "programs",
+      "name": "Programs",
+      "path": "/#programs",
+      "description": "Academic programs offered by SoIT"
+    },
+    {
+      "id": "admissions",
+      "name": "Admissions",
+      "path": "/#admissions",
+      "description": "Admission process and requirements"
+    },
+    {
+      "id": "faculty",
+      "name": "Faculty",
+      "path": "/#faculty",
+      "description": "Faculty members at SoIT"
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "path": "/#research",
+      "description": "Research activities and highlights"
+    },
+    {
+      "id": "placements",
+      "name": "Placements",
+      "path": "/#placements",
+      "description": "Placement statistics and recruiters"
+    },
+    {
+      "id": "news-events",
+      "name": "News & Events",
+      "path": "/#news-events",
+      "description": "Latest news and upcoming events"
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "path": "/#gallery",
+      "description": "Photo gallery of campus and events"
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "path": "/#contact",
+      "description": "Contact information and enquiry form"
+    }
+  ]
+}
