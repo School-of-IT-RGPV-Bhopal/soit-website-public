@@ -820,6 +820,7 @@ function DomeGallery({
                       item__image absolute block cursor-pointer overflow-hidden
                       bg-white
                     "
+                    data-tour={i === 0 ? "gallery-featured-image" : undefined}
                     role="button"
                     tabIndex={0}
                     aria-label={it.alt || "Open image"}
@@ -1281,7 +1282,7 @@ export default function Gallery() {
     ">
       <div className="relative container mx-auto px-4">
         {/* Section Header */}
-        <div className="mb-8 fade-up text-center">
+        <div className="mb-8 fade-up text-center" data-tour="gallery-intro">
           <h2 className="
             mb-4 text-3xl font-bold text-primary
             md:text-4xl
@@ -1295,10 +1296,13 @@ export default function Gallery() {
         </div>
 
         {/* Responsive Mode Toggle Switch */}
-        <div className="
+        <div
+          className="
           z-30 mb-4 flex justify-center
           md:absolute md:top-0 md:right-8 md:mb-0 md:justify-end
-        ">
+        "
+          data-tour="gallery-mode-toggle"
+        >
           <div className="
             flex rounded-xl border border-gray-200 bg-white p-1 shadow-md
           ">
@@ -1330,11 +1334,14 @@ export default function Gallery() {
         </div>
 
         {/* Gallery Container */}
-        <div className="
+        <div
+          className="
           relative h-150 w-full fade-up overflow-hidden rounded-xl border
           border-gray-200 bg-gray-100 shadow-inner
           md:h-175
-        ">
+        "
+          data-tour="gallery-stage"
+        >
           <AnimatePresence mode="wait">
             {mode === "dome" && (
               <motion.div

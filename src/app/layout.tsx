@@ -70,6 +70,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://soitrgpv.ac.in'),
   title: {
     default: "SOIT RGPV - School of Information Technology | RGPV Bhopal",
     template: "%s | SOIT RGPV - School of Information Technology"
