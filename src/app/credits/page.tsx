@@ -26,7 +26,7 @@ const facultyMentors = [
     delay: '0.1s',
   },
   {
-    name: 'Nishchol Mishra Sir',
+    name: 'Dr. Nishchol Mishra Sir',
     role: 'Technical Mentor',
     description: 'Overseeing technical implementation and ensuring quality standards',
     image: '/images/ProfessorImages/Nishchol_Mishra_sir.jpeg',
@@ -34,7 +34,7 @@ const facultyMentors = [
     delay: '0.2s',
   },
   {
-    name: 'Varsha Sharma Mam',
+    name: "Dr. Varsha Sharma Ma'am",
     role: 'Design & UX Mentor',
     description: 'Ensuring design excellence and optimal user experience standards',
     image: '/images/ProfessorImages/Varsha_Sharma_mam.jpeg',

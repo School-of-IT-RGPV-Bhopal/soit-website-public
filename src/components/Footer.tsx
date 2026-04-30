@@ -284,6 +284,15 @@ export default function Footer() {
                   Analytics
                 </Link>
                 <Link
+                  href="/calendars"
+                  className="
+                    block text-sm font-medium text-gray-600 transition-colors
+                    hover:text-black
+                  "
+                >
+                  Calendars
+                </Link>
+                <Link
                   href="/faq"
                   className="
                     block text-sm font-medium text-gray-600 transition-colors

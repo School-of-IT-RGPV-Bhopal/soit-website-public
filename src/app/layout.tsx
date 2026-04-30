@@ -71,6 +71,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://soitrgpv.ac.in'),
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/images/logo.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   title: {
     default: "SOIT RGPV - School of Information Technology | RGPV Bhopal",
     template: "%s | SOIT RGPV - School of Information Technology"
@@ -150,7 +159,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://soitrgpv.ac.in",
     siteName: "SOIT RGPV - School of Information Technology",
-    title: "SOIT RGPV - School of Information Technology | UIT RGPV Bhopal",
+    title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
     description: "Leading School of Information Technology at RGPV Bhopal offering world-class engineering education, research opportunities, and excellent placement records in Computer Science and IT with 95%+ placement record.",
     images: [
       {
@@ -163,16 +172,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SOIT RGPV - School of Information Technology | UIT RGPV Bhopal",
+    title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
     description: "Leading engineering education at RGPV Bhopal with 95%+ placements, world-class faculty, research excellence and industry partnerships in Computer Science and IT.",
     images: ["/images/campus-hero.jpg"],
   },
   alternates: {
     canonical: "https://soitrgpv.ac.in",
   },
-  verification: {
-    google: "your-google-verification-code", // Add actual verification code
-  },
+  // TODO: Add
+  // verification: {
+  //   google: "your-google-verification-code", // Add actual verification code
+  // },
   category: "Education",
   classification: "Engineering College",
   other: {
@@ -212,6 +222,7 @@ export default function RootLayout({
         "url": "https://soitrgpv.ac.in",
         "logo": {
           "@type": "ImageObject",
+          // TODO: Add actual logo URL
           "url": "https://soitrgpv.ac.in/images/logo.png"
         },
         "description": "School of Information Technology at RGPV Bhopal offering world-class engineering education in Computer Science and Information Technology with excellent placement records.",
@@ -397,9 +408,10 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
         <ChatWidget />
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
       </body>
-
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }

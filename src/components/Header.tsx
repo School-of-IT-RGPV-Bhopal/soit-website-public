@@ -226,6 +226,12 @@ export default function Header() {
                   ">
                     Analytics
                   </Link>
+                  <Link href="/calendars" className="
+                    block px-4 py-2 text-sm text-gray-700
+                    hover:bg-gray-50 hover:text-primary
+                  ">
+                    Calendars
+                  </Link>
                   <Link href="/work-in-progress" target="_blank" className="
                     block px-4 py-2 text-sm text-gray-700
                     hover:bg-gray-50 hover:text-primary
@@ -375,6 +381,12 @@ export default function Header() {
               hover:text-primary
             " onClick={() => setMobileMenuOpen(false)}>
               Analytics
+            </Link>
+            <Link href="/calendars" className="
+              block py-2 pl-4 text-gray-700
+              hover:text-primary
+            " onClick={() => setMobileMenuOpen(false)}>
+              Calendars
             </Link>
             <Link href="/work-in-progress" target="_blank" className="
               block py-2 pl-4 text-gray-700
