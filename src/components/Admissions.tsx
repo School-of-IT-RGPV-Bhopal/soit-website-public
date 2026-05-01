@@ -14,7 +14,7 @@ export default function Admissions() {
     },
 
     {
-      id: 4,
+      id: 2,
       title: "JEE Main",
       description:
         "Appear for JEE Main entrance examination as per the schedule.",
