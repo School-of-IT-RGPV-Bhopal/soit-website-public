@@ -1,4 +1,4 @@
-interface SectionHeaderProps {
+type SectionHeaderProps = {
   title: string;
   description: string;
 }

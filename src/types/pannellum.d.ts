@@ -1,4 +1,4 @@
-interface PannellumViewer {
+type PannellumViewer = {
   destroy(): void;
   mouseEventToCoords(event: MouseEvent): [number, number];
   on(event: string, callback: (eventOrArg: any) => void): PannellumViewer;
@@ -12,10 +12,10 @@ interface PannellumViewer {
   loadScene(sceneId: string, pitch?: number, yaw?: number, hfov?: number): void;
   getPanorama(): string;
   getConfig(): any;
-}
+};
 
-interface Window {
+type Window = {
   pannellum: {
     viewer(container: HTMLElement | string, config: any): PannellumViewer;
   };
-}
+};

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-interface LeadershipCardProps {
+type LeadershipCardProps = {
   name: string;
   role: string;
   badge: string;

@@ -2,63 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Trophy, Award } from "lucide-react";
+import { competitions } from "@/data/student_achievements/competitions";
 
 const SQRT_5000 = Math.sqrt(5000);
 
-const competitions = [
-  {
-    tempId: 0,
-    title: "Samadhaan",
-    position: "Winner (National)",
-    detail: "Secured the top spot with a prize of ₹50,000.",
-    year: "2025",
-    type: "National"
-  },
-  {
-    tempId: 1,
-    title: "AceHack",
-    position: "All Girls Team Winnner",
-    detail: "Team PowerPuff Girls earned ₹10,000 for their innovative solution.",
-    year: "2026",
-    type: "National"
-  },
-  {
-    tempId: 2,
-    title: "ACM ICPC Asia Regionals",
-    position: "Qualified",
-    detail: "Represented SOIT at the world's most prestigious competitive programming event.",
-    year: "2025",
-    type: "International"
-  },
-  {
-    tempId: 3,
-    title: "MP State Hackathon",
-    position: "Winner (State)",
-    detail: "Emerged victorious among all state colleges.",
-    year: "2025",
-    type: "State"
-  },
-  {
-    tempId: 4,
-    title: "TCS CodeVita Season 13",
-    position: "Global Rank 4 and 14",
-    detail: "Individual excellence led to elite job offers and global recognition.",
-    year: "2025",
-    type: "International"
-  },
-  // {
-  //   tempId: 5,
-  //   title: "Google Code Jam",
-  //   position: "Top 500",
-  //   detail: "Ranked among the top algorithms experts globally.",
-  //   year: "2024",
-  //   type: "International"
-  // }
-];
-
-interface AchievementCardProps {
+type AchievementCardProps = {
   position: number;
-  data: typeof competitions[0];
+  data: (typeof competitions)[0];
   handleMove: (steps: number) => void;
   cardSize: number;
 }
@@ -71,7 +21,6 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
 }) => {
   const isCenter = position === 0;
 
-  // REMOVED: Main card border logic for the center card
   const cardClasses = `absolute left-1/2 top-1/2 cursor-pointer p-8 transition-all duration-500 ease-in-out ${
     isCenter
       ? "z-10 bg-white text-slate-900 shadow-2xl shadow-blue-500/10 scale-105"
@@ -79,7 +28,9 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
   }`;
 
   const iconBoxClasses = `mb-4 flex h-12 w-12 items-center justify-center rounded-lg ${
-    isCenter ? "bg-blue-600 text-white shadow-lg shadow-blue-200" : "bg-slate-200 text-slate-400"
+    isCenter
+      ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
+      : "bg-slate-200 text-slate-400"
   }`;
 
   return (
@@ -107,7 +58,7 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
           height: 1.5,
         }}
       />
-      
+
       <div className={iconBoxClasses}>
         {data.type === "International" ? (
           <Trophy className="size-6" />
@@ -116,38 +67,48 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
         )}
       </div>
 
-      <h4 className="
+      <h4
+        className="
         mb-2 text-[10px] font-bold tracking-[0.2em] text-blue-500 uppercase
-      ">
+      "
+      >
         {data.year} • {data.type}
       </h4>
-      
-      <h3 className={`
+
+      <h3
+        className={`
         mb-2 text-xl/tight font-bold
         ${isCenter ? `text-slate-900` : `text-slate-500`}
-      `}>
+      `}
+      >
         {data.title}
       </h3>
-      
-      <p className={`
+
+      <p
+        className={`
         mb-4 text-sm font-semibold
         ${isCenter ? "text-blue-600" : `text-slate-400`}
-      `}>
+      `}
+      >
         {data.position}
       </p>
 
-      <p className={`
+      <p
+        className={`
         text-sm/relaxed italic
         ${isCenter ? `font-medium text-slate-600` : `text-slate-300`}
-      `}>
+      `}
+      >
         "{data.detail}"
       </p>
 
       <div className="absolute right-8 bottom-8">
-         <Award className={`
+        <Award
+          className={`
            size-5 transition-opacity
            ${isCenter ? `text-yellow-500 opacity-100` : `opacity-0`}
-         `} />
+         `}
+        />
       </div>
     </div>
   );
@@ -188,27 +149,33 @@ export default function StarsOfSOIT() {
   return (
     <section className="relative w-full overflow-hidden bg-white py-24">
       <div className="relative z-20 mb-16 text-center">
-        <h2 className="
+        <h2
+          className="
           text-4xl font-extrabold tracking-tight text-slate-900
           sm:text-6xl
-        ">
+        "
+        >
           The Stars of <span className="text-blue-600">SOIT</span>
         </h2>
         <div className="mt-4 flex items-center justify-center gap-2">
           <div className="h-px w-8 bg-slate-200" />
-          <p className="
+          <p
+            className="
             text-xs font-medium tracking-widest text-slate-500 uppercase
-          ">
-            Our shiniest students competing and winning at the highest levels</p>
+          "
+          >
+            Our shiniest students competing and winning at the highest levels
+          </p>
           <div className="h-px w-8 bg-slate-200" />
         </div>
       </div>
 
       <div className="relative h-162.5 w-full bg-slate-50/30">
         {list.map((item, index) => {
-          const position = list.length % 2
-            ? index - (list.length - 1) / 2
-            : index - list.length / 2;
+          const position =
+            list.length % 2
+              ? index - (list.length - 1) / 2
+              : index - list.length / 2;
           return (
             <AchievementCard
               key={item.tempId}
@@ -220,9 +187,11 @@ export default function StarsOfSOIT() {
           );
         })}
 
-        <div className="
+        <div
+          className="
           absolute bottom-12 left-1/2 z-30 flex -translate-x-1/2 gap-3
-        ">
+        "
+        >
           <button
             onClick={() => handleMove(-1)}
             className="

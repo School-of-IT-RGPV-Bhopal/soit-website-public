@@ -119,9 +119,7 @@ export default function Research() {
           <div className="mx-auto mt-4 h-1 w-20 bg-accent"></div>
         </div>
 
-        <div
-          className="flex flex-wrap justify-center gap-8"
-        >
+        <div className="flex flex-wrap justify-center gap-8">
           {researchAreas.map((area) => (
             <div
               key={area.id}
@@ -153,7 +151,7 @@ export default function Research() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 > */}
-                  {/* <path
+                {/* <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}

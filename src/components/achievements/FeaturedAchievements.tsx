@@ -10,26 +10,8 @@ import {
   Sparkles,
   Trophy,
 } from "lucide-react";
-
-type Achievement = {
-  title: string;
-  student: string;
-  year: string;
-  description: string;
-  category: string;
-  icon: React.ReactNode;
-  accent: {
-    chipBg: string;
-    chipText: string;
-    ring: string;
-    glow: string;
-    borderHover: string;
-  };
-};
-
-function cx(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
+import { cn } from "@/utils/utils";
+import { Achievement, achievements } from "@/data/student_achievements/achievements";
 
 const ANIM_MS = 520;
 
@@ -50,73 +32,6 @@ function mustGet<T>(arr: readonly T[], i: number, label = "item"): T {
 }
 
 export default function FeaturedAchievements() {
-  const achievements: readonly Achievement[] = [
-    {
-      title: "Samadhaan and AceHack winners",
-      student: "Sophmore Students",
-      year: "2025",
-      description:
-        "Built an AI-enabled solution for rural healthcare workflows and secured the Grand Finale win at national level.",
-      category: "Hackathon",
-      icon: <Trophy className="size-6" />,
-      accent: {
-        chipBg: "bg-amber-50",
-        chipText: "text-amber-800",
-        ring: "ring-amber-200/70",
-        glow: "bg-amber-200/30",
-        borderHover: "hover:border-amber-300/70",
-      },
-    },
-    {
-      title: "ACM ICPC Regionals Qualifier",
-      student: "Students of SOIT",
-      year: "2025",
-      description:
-        "Our students advanced to ACM ICPC Asia Regional Finals, demonstrating strong algorithmic thinking and teamwork.",
-      category: "Competitive Programming",
-      icon: <Code2 className="size-6" />,
-      accent: {
-        chipBg: "bg-sky-50",
-        chipText: "text-sky-800",
-        ring: "ring-sky-200/70",
-        glow: "bg-sky-200/30",
-        borderHover: "hover:border-sky-300/70",
-      },
-    },
-    {
-      title: "National Snooker and Heyball Championship",
-      student: "Soumya Singh",
-      year: "2025",
-      description:
-        "Represented India in International Heyball Open Championship 2025 ",
-      category: "Sports",
-      icon: <FlaskConical className="size-6" />,
-      accent: {
-        chipBg: "bg-emerald-50",
-        chipText: "text-emerald-800",
-        ring: "ring-emerald-200/70",
-        glow: "bg-emerald-200/30",
-        borderHover: "hover:border-emerald-300/70",
-      },
-    },
-    // {
-    //   title: "Google Summer of Code Selection",
-    //   student: "Rahul Verma, Ankit Singh",
-    //   year: "2024",
-    //   description:
-    //     "Selected for GSoC and contributed to production-grade open-source projects across ML and web engineering.",
-    //   category: "Open Source",
-    //   icon: <Globe className="size-6" />,
-    //   accent: {
-    //     chipBg: "bg-violet-50",
-    //     chipText: "text-violet-800",
-    //     ring: "ring-violet-200/70",
-    //     glow: "bg-violet-200/30",
-    //     borderHover: "hover:border-violet-300/70",
-    //   },
-    // },
-  ];
-
   const prefersReducedMotion = useMemo(() => {
     if (typeof window === "undefined") return true;
     return (
@@ -311,7 +226,7 @@ export default function FeaturedAchievements() {
                       key={a.title}
                       onClick={() => goTo(i)}
                       disabled={isAnimating}
-                      className={cx(
+                      className={cn(
                         `
                           group relative w-[16rem] shrink-0 rounded-2xl
                           text-left
@@ -349,7 +264,7 @@ export default function FeaturedAchievements() {
                           <div className="min-w-0">
                             <div className="flex items-center gap-2">
                               <span
-                                className={cx(
+                                className={cn(
                                   `
                                     inline-flex items-center rounded-full px-2.5
                                     py-1 text-[11px] font-semibold
@@ -382,7 +297,7 @@ export default function FeaturedAchievements() {
                       </div>
 
                       <div
-                        className={cx(
+                        className={cn(
                           "absolute inset-y-0 left-0 w-1 rounded-l-2xl",
                           active ? "bg-slate-900" : "bg-transparent",
                         )}
@@ -415,7 +330,7 @@ export default function FeaturedAchievements() {
                 "
                 />
                 <div
-                  className={cx(
+                  className={cn(
                     `
                       pointer-events-none absolute -top-10 left-1/2 size-44
                       -translate-x-1/2 rounded-full blur-3xl
@@ -426,7 +341,7 @@ export default function FeaturedAchievements() {
 
                 <div className="absolute inset-0 p-5">
                   <div
-                    className={cx(
+                    className={cn(
                       `
                         absolute inset-5 overflow-hidden rounded-xl border
                         border-slate-200/70 bg-white
@@ -444,7 +359,7 @@ export default function FeaturedAchievements() {
 
                   {incoming && (
                     <div
-                      className={cx(
+                      className={cn(
                         `
                           absolute inset-5 overflow-hidden rounded-xl border
                           border-slate-200/70 bg-white
@@ -471,7 +386,7 @@ export default function FeaturedAchievements() {
                   type="button"
                   onClick={prev}
                   disabled={isAnimating}
-                  className={cx(
+                  className={cn(
                     "inline-flex items-center justify-center rounded-full",
                     `
                       border border-slate-200/80 bg-white/60 p-3 text-slate-900
@@ -501,7 +416,7 @@ export default function FeaturedAchievements() {
                       key={i}
                       onClick={() => goTo(i)}
                       disabled={isAnimating}
-                      className={cx(
+                      className={cn(
                         "h-1.5 rounded-full transition-all",
                         i === safeIndex
                           ? "w-7 bg-slate-900"
@@ -519,7 +434,7 @@ export default function FeaturedAchievements() {
                   type="button"
                   onClick={next}
                   disabled={isAnimating}
-                  className={cx(
+                  className={cn(
                     "inline-flex items-center justify-center rounded-full",
                     `
                       border border-slate-200/80 bg-white/60 p-3 text-slate-900
@@ -558,7 +473,7 @@ export default function FeaturedAchievements() {
               "
               >
                 <div
-                  className={cx(
+                  className={cn(
                     `
                       absolute inset-0 p-6
                       sm:p-7
@@ -575,7 +490,7 @@ export default function FeaturedAchievements() {
 
                 {incoming && (
                   <div
-                    className={cx(
+                    className={cn(
                       `
                         absolute inset-0 p-6
                         sm:p-7
@@ -593,7 +508,6 @@ export default function FeaturedAchievements() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
@@ -608,7 +522,7 @@ function PosterCard({ a }: { a: Achievement }) {
       "
       >
         <span
-          className={cx(
+          className={cn(
             `
               inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs
               font-semibold
@@ -654,7 +568,7 @@ function PosterCard({ a }: { a: Achievement }) {
         </div>
 
         <div
-          className={cx(
+          className={cn(
             `
               mb-5 inline-flex size-16 items-center justify-center rounded-2xl
               bg-slate-900 text-white shadow-sm ring-2
@@ -686,7 +600,7 @@ function AchievementText({ a }: { a: Achievement }) {
     <div className="flex h-full flex-col">
       <div className="flex flex-wrap items-center gap-2">
         <span
-          className={cx(
+          className={cn(
             `
               inline-flex items-center rounded-full px-3 py-1 text-xs
               font-semibold

@@ -918,7 +918,7 @@ function DomeGallery({
 
 // --- 2. STACK (DECK) GALLERY LOGIC ---
 
-interface CardRotateProps {
+type CardRotateProps = {
   children: React.ReactNode;
   onSendToBack: () => void;
   sensitivity: number;
@@ -977,7 +977,7 @@ function CardRotate({
   );
 }
 
-interface StackProps {
+type StackProps = {
   randomRotation?: boolean;
   sensitivity?: number;
   sendToBackOnClick?: boolean;
@@ -986,7 +986,7 @@ interface StackProps {
   autoplay?: boolean;
   autoplayDelay?: number;
   pauseOnHover?: boolean;
-}
+};
 
 function StackGallery({
   randomRotation = false,

@@ -3,7 +3,7 @@ import { JWT } from 'google-auth-library';
 import { withCache } from '@lib/cache';
 
 
-export interface AlumniMember {
+export type AlumniMember = {
   id: number;
   name: string;
   batch: string;
@@ -17,7 +17,7 @@ export interface AlumniMember {
   email?: string | null;
   currentRole?: string;
   impactStory?: string;
-}
+};
 
 export async function getAlumniData(): Promise<AlumniMember[]> {
   return withCache(

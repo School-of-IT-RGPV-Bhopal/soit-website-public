@@ -1,4 +1,4 @@
-interface PhotographyCardProps {
+type PhotographyCardProps = {
   name: string;
   role: string;
   description: string;

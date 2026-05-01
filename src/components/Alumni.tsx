@@ -17,9 +17,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AlumniMember } from "@lib/alumniFetcher";
 import { FaLinkedin } from "react-icons/fa";
 
-interface AlumniSectionProps {
+type AlumniSectionProps = {
   initialAlumni: AlumniMember[];
-}
+};
 
 // const stats = [
 //   { value: "50,000+", label: "Alumni Worldwide" },

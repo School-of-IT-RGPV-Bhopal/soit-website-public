@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-interface AnalyticsData {
+type AnalyticsData = {
   pageViews: number;
   countries: Array<{ country: string; users: number }>;
-}
+};
 
 export default function FooterAnalyticsWidget() {
   const [data, setData] = useState<AnalyticsData | null>(null);

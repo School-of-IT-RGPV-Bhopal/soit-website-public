@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export interface LeadershipMessageProps {
+export type LeadershipMessageProps = {
   id: string;
   title: string;
   name: string;

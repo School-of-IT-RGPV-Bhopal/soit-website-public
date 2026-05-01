@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useHashNavigation } from '@utils/useHashNavigation';
+import Link from "next/link";
+import { useHashNavigation } from "@utils/useHashNavigation";
 
-interface HashLinkProps {
+type HashLinkProps = {
   href: string;
   hash: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
-}
+};
 
 /**
  * Client component for links with hash navigation support.
  * Enables smooth scrolling when already on the target page.
  */
-export default function HashLink({ 
-  href, 
-  hash, 
-  children, 
+export default function HashLink({
+  href,
+  hash,
+  children,
   className,
-  onClick 
+  onClick,
 }: HashLinkProps) {
   const handleHashNavigation = useHashNavigation();
 

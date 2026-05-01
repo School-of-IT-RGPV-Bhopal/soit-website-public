@@ -1,20 +1,19 @@
 import { cn } from "@utils/utils";
 
-
-interface NavItem {
+type NavItem = {
   id: string;
   label: string;
-}
+};
 
-interface SidebarNavProps {
+type SidebarNavProps = {
   items: NavItem[];
   activeSection: string;
   onNavClick: (id: string) => void;
-}
+};
 
 const SidebarNav = ({ items, activeSection, onNavClick }: SidebarNavProps) => {
   return (
-    <nav className="sticky top-24 space-y-1"> 
+    <nav className="sticky top-24 space-y-1">
       {/* Removed "sidenav" unless you have specific layout CSS for it */}
       {items.map((item) => (
         <button
@@ -25,7 +24,7 @@ const SidebarNav = ({ items, activeSection, onNavClick }: SidebarNavProps) => {
               sidebar-link text-sm
               md:text-lg
             `, // Combined branding + responsive sizes
-            activeSection === item.id && "sidebar-link-active"
+            activeSection === item.id && "sidebar-link-active",
           )}
         >
           {item.label}

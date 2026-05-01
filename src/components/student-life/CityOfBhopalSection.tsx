@@ -1,11 +1,11 @@
 // import { MapPin, TreePine, Landmark, Sun } from "lucide-react";
 import Image from "next/image";
 
-export type CityHighlight = {
-  id: string;
-  title: string;
-  description: string;
-};
+// export type CityHighlight = {
+//   id: string;
+//   title: string;
+//   description: string;
+// };
 
 // const highlights: CityHighlight[] = [
 //   {

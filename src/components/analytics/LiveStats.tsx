@@ -2,18 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-interface AnalyticsData {
+type AnalyticsData = {
   pageViews: number;
   countries: Array<{ country: string; users: number }>;
   lastUpdated: string;
 }
 
-interface ActiveUsersData {
+type ActiveUsersData = {
   activeUsers: number;
   lastUpdated: string;
 }
 
-interface LiveStatsProps {
+type LiveStatsProps = {
   forceRefreshOnMount?: boolean;
 }
 

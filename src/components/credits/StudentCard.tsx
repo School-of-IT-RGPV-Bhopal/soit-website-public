@@ -1,6 +1,6 @@
 import { FaLinkedin } from 'react-icons/fa';
 
-interface StudentCardProps {
+type StudentCardProps = {
   name: string;
   role: string;
   description: string;

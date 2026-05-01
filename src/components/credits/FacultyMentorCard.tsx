@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-interface FacultyMentorCardProps {
+type FacultyMentorCardProps = {
   name: string;
   role: string;
   description: string;

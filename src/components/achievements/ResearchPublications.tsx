@@ -1,72 +1,6 @@
-export default function ResearchPublications() {
-  const publications = [
-  {
-    title:
-      "Design and Implementation of an Approach to Enhance Android Security Using Machine Learning",
-    authors:
-      "Dr. Praveen Kumar Kaithal (under the guidance of Dr. Varsha Sharma)",
-    conference:
-      "Ph.D. Dissertation, School of Information Technology, RGPV, Bhopal",
-    type: "Thesis",
-    impact: "PhD Awarded (Nov 2025)",
-  },
-  {
-    title:
-      "Design and Implementation of a System to Monitor and Control the Polyhouse Environment using Artificial Intelligence and IoT",
-    authors: "Dr. Varsha Sharma (Principal Investigator)",
-    conference:
-      "Funded Research Project, M.P. Council of Science & Technology",
-    type: "Project",
-    impact: "Funded Project (₹8 Lakhs, 2025)",
-  },
-  {
-    title:
-      "An Efficient Framework for Phishing Detection System based on Machine Learning",
-    authors:
-      "Dr. Pankaj Pandey (Supervisor: Dr. Nishchol Mishra)",
-    conference:
-      "Ph.D. Research Work, Current Position: Assistant Professor, Symbiosis University of Applied Sciences, Indore",
-    type: "Thesis",
-    impact: "PhD Completed",
-  },
-  {
-    title:
-      "Design of Intrusion Detection System for Internet of Things Using Soft Computing Technique",
-    authors:
-      "Dr. Huma Gupta (Guided by Dr. Sanjeev Sharma and Dr. Sanjay Agrawal)",
-    conference:
-      "Ph.D., School of Information Technology, RGPV, Bhopal (Viva: June 13, 2025)",
-    type: "Thesis",
-    impact: "PhD Awarded",
-  },
-  {
-    title:
-      "Secured Energy Efficient Chaotic Gazelle Based Optimized Routing Protocol in Mobile Ad-Hoc Network",
-    authors: "Gajendra K Ahirwar",
-    conference:
-      "Sustainable Computing: Informatics and Systems (Elsevier)",
-    type: "Journal",
-    impact: "SCI-Indexed",
-  },
-  {
-    title:
-      "A Competent CCHFMO with AMDH for QoS Improvisation and Efficient Route Protection in MANET",
-    authors: "Gajendra K Ahirwar",
-    conference:
-      "Concurrency and Computation: Practice and Experience",
-    type: "Journal",
-    impact: "SCI-Indexed",
-  },
-  {
-    title:
-      "An Extensive Review on QoS Enhancement in MANET Using Meta-Heuristic Algorithms",
-    authors: "Gajendra K Ahirwar",
-    conference: "Wireless Personal Communications",
-    type: "Journal",
-    impact: "Scopus-Indexed",
-  },
-];
+import { researchPublications } from "@/data/student_achievements/research";
 
+export default function ResearchPublications() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-7xl">
@@ -80,7 +14,7 @@ export default function ResearchPublications() {
         </div>
 
         <div className="space-y-6 px-4">
-          {publications.map((pub, index) => (
+          {researchPublications.map((pub, index) => (
             <div
               key={index}
               className="
@@ -89,15 +23,19 @@ export default function ResearchPublications() {
                 hover:shadow-2xl
               "
             >
-              <div className="
+              <div
+                className="
                 flex flex-col gap-4
                 md:flex-row md:items-start
-              ">
+              "
+              >
                 <div className="shrink-0">
-                  <div className="
+                  <div
+                    className="
                     flex size-16 items-center justify-center rounded-full
                     bg-linear-to-br from-primary/20 to-secondary/20 text-3xl
-                  ">
+                  "
+                  >
                     📄
                   </div>
                 </div>
@@ -108,28 +46,32 @@ export default function ResearchPublications() {
                       className={`
                         rounded-full px-3 py-1 text-xs font-semibold
                         ${
-                        pub.type === "Journal"
-                          ? "bg-purple-100 text-purple-700"
-                          : pub.type === "Conference"
-                            ? "bg-blue-100 text-blue-700"
-                            : "bg-green-100 text-green-700"
-                      }
+                          pub.type === "Journal"
+                            ? "bg-purple-100 text-purple-700"
+                            : pub.type === "Conference"
+                              ? "bg-blue-100 text-blue-700"
+                              : "bg-green-100 text-green-700"
+                        }
                       `}
                     >
                       {pub.type}
                     </span>
-                    <span className="
+                    <span
+                      className="
                       rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold
                       text-orange-700
-                    ">
+                    "
+                    >
                       {pub.impact}
                     </span>
                   </div>
 
-                  <h3 className="
+                  <h3
+                    className="
                     mb-2 text-xl font-bold text-gray-900
                     group-hover:text-primary
-                  ">
+                  "
+                  >
                     {pub.title}
                   </h3>
 
@@ -147,10 +89,12 @@ export default function ResearchPublications() {
           ))}
         </div>
 
-        <div className="
+        <div
+          className="
           mt-12 rounded-2xl border border-primary/20 bg-linear-to-br
           from-primary/5 to-secondary/5 p-8 text-center
-        ">
+        "
+        >
           <h3 className="mb-4 text-2xl font-bold text-gray-900">
             Want to Contribute to Research?
           </h3>

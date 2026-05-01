@@ -1,13 +1,7 @@
+import { placementStats } from "@/data/placements/stats";
 import Recruiters from "@app/placements/Recruiters";
 
 export default function Placements() {
-  const placementStats = [
-    { label: "Placement Rate", value: "90%" },
-    { label: "Average Package", value: "₹6 LPA" },
-    { label: "Highest Package", value: "₹13 LPA" },
-    { label: "Companies Visited", value: "60+" },
-  ];
-
   // const recruiters = [
   //   'Microsoft', 'Google', 'Amazon', 'TCS', 'Infosys',
   //   'Wipro', 'IBM', 'Accenture', 'Cognizant', 'Capgemini'

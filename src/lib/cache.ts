@@ -3,10 +3,10 @@
  * Caches data for 15-30 minutes depending on the data type
  */
 
-interface CacheEntry<T> {
+type CacheEntry<T> = {
   data: T;
   expiresAt: number;
-}
+};
 
 class CacheManager {
   private cache: Map<string, CacheEntry<unknown>> = new Map();
