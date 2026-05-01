@@ -17,6 +17,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import AxeProvider from "./AxeProvider";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 // // Construction Banner Component
 // const ConstructionBanner = () => {
@@ -69,9 +71,9 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   metadataBase: new URL('https://soitrgpv.ac.in'),
-  manifest: "/manifest.webmanifest",
+  manifest: "/manifest.ts",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -396,6 +398,7 @@ export default function RootLayout({
           antialiased
         `}
       >
+        <AxeProvider /> {/* Accessibility Testing */}
         <SplashScreen />
         <TourProvider />
         <div className="fixed inset-x-0 top-0 z-50 flex flex-col">
@@ -408,6 +411,7 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
         <ChatWidget />
+        <AccessibilityWidget /> {/* Accessibility Widget */}
         {process.env.NEXT_PUBLIC_GA_ID ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         ) : null}

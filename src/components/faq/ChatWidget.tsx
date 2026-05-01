@@ -293,7 +293,7 @@ export default function ChatWidget() {
         onClick={() => {
           setIsOpen((currentValue) => !currentValue);
         }}
-        className="fixed right-4 bottom-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#005F73] text-white shadow-[0_18px_40px_-20px_rgba(0,95,115,0.85)] transition-transform hover:scale-105 hover:bg-[#0b7285] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#005F73]/30 sm:right-6 sm:bottom-6"
+        className="fixed right-2 bottom-30 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#005F73] text-white shadow-[0_18px_40px_-20px_rgba(0,95,115,0.85)] transition-transform hover:scale-105 hover:bg-[#0b7285] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#005F73]/30 sm:right-2 sm:bottom-30"
         aria-label={isOpen ? "Close SOIT Assistant" : "Open SOIT Assistant"}
       >
         {isOpen ? (
