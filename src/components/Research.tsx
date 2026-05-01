@@ -145,21 +145,21 @@ export default function Research() {
                   hover:underline
                 "
               >
-                Explore Research
+                {/* Explore Research
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-1 size-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                >
-                  <path
+                > */}
+                  {/* <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M9 5l7 7-7 7"
                   />
-                </svg>
+                </svg> */}
               </button>
             </div>
           ))}

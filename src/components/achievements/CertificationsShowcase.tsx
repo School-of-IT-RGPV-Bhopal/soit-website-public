@@ -13,7 +13,7 @@ import {
 
 type Certification = {
   provider: string;
-  count: number;
+  // count: number;
   icon: React.ReactNode;
   certifications: string[];
   gradient: string; // tailwind gradient classes
@@ -101,10 +101,10 @@ function CertificationCard({
               inline-flex items-baseline gap-1 rounded-full bg-slate-900/85 px-3
               py-1 text-white ring-1 ring-white/20
             ">
-              <span className="text-lg leading-none font-semibold">
+              {/* <span className="text-lg leading-none font-semibold">
                 {cert.count}
-              </span>
-              <span className="text-xs opacity-80">+</span>
+              </span> */}
+              {/* <span className="text-xs opacity-80">+</span> */}
             </div>
             <p className="mt-1 text-xs text-slate-600">Certified students</p>
           </div>
@@ -177,7 +177,7 @@ export default function CertificationsShowcase() {
   const certifications: Certification[] = [
     {
       provider: "Amazon Web Services",
-      count: 30,
+      // count: 30,
       icon: <Cloud className="size-5" />,
       certifications: [
         "AWS Certified Solutions Architect",
@@ -189,7 +189,7 @@ export default function CertificationsShowcase() {
     },
     {
       provider: "Google Cloud",
-      count: 25,
+      // count: 25,
       icon: <Globe className="size-5" />,
       certifications: [
         "Google Cloud Certified Professional",
@@ -201,7 +201,7 @@ export default function CertificationsShowcase() {
     },
     {
       provider: "Microsoft Azure",
-      count: 20,
+      // count: 20,
       icon: <Server className="size-5" />,
       certifications: ["Azure Fundamentals", "Azure Administrator", "Azure AI Engineer"],
       gradient: "from-indigo-500 to-blue-600",
@@ -209,7 +209,7 @@ export default function CertificationsShowcase() {
     },
     {
       provider: "CompTIA & Cisco",
-      count: 15,
+      // count: 15,
       icon: <Network className="size-5" />,
       certifications: ["CompTIA Security+", "Cisco CCNA", "CompTIA Network+"],
       gradient: "from-rose-500 to-red-600",
@@ -217,7 +217,7 @@ export default function CertificationsShowcase() {
     },
     {
       provider: "Red Hat & Linux",
-      count: 12,
+      // count: 12,
       icon: <Terminal className="size-5" />,
       certifications: ["Red Hat Certified System Administrator", "Linux Professional Institute"],
       gradient: "from-slate-700 to-slate-900",
@@ -225,7 +225,7 @@ export default function CertificationsShowcase() {
     },
     {
       provider: "Oracle & Databases",
-      count: 10,
+      // count: 10,
       icon: <Database className="size-5" />,
       certifications: ["Oracle Certified Associate", "MongoDB Certified Developer"],
       gradient: "from-orange-600 to-amber-600",
