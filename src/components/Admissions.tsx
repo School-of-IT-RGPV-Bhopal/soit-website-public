@@ -12,17 +12,18 @@ export default function Admissions() {
       description:
         "Review program requirements and ensure you meet the eligibility criteria for your desired course.",
     },
+
     {
-      id: 2,
-      title: "DTE Registration",
-      description:
-        "Register on the DTE MP Online portal and fill the application form with required documents.",
-    },
-    {
-      id: 3,
+      id: 4,
       title: "JEE Main",
       description:
         "Appear for JEE Main entrance examination as per the schedule.",
+    },
+    {
+      id: 3,
+      title: "DTE Registration",
+      description:
+        "Register on the DTE MP Online portal and fill the application form with required documents.",
     },
     {
       id: 4,
