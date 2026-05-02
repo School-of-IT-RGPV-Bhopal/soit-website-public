@@ -20,6 +20,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import AxeProvider from "./AxeProvider";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+import { siteContact } from "@lib/siteContact";
 
 // // Construction Banner Component
 // const ConstructionBanner = () => {
@@ -234,7 +235,7 @@ export default function RootLayout({
           "streetAddress": "University Institute of Technology, RGPV",
           "addressLocality": "Bhopal",
           "addressRegion": "Madhya Pradesh",
-          "postalCode": "462033",
+          "postalCode": siteContact.postalCode,
           "addressCountry": "IN"
         },
         "geo": {
@@ -242,8 +243,8 @@ export default function RootLayout({
           "latitude": 23.2599,
           "longitude": 77.4126
         },
-        "telephone": "+91-755-XXXXXXX",
-        "email": "info@soitrgpv.ac.in",
+        "telephone": siteContact.phoneDisplay,
+        "email": siteContact.email,
         "foundingDate": "2000",
         "parentOrganization": {
           "@type": "EducationalOrganization",

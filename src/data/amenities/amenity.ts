@@ -123,7 +123,7 @@ export const academicFacilities: Amenity[] = [
     title: "Lecture Theatre",
     description:
       "Large capacity lecture halls with tiered seating, advanced projection systems, and excellent acoustics designed for mass lectures, presentations, and academic gatherings.",
-    urlName: "Lecture_Theatre",
+    urlName: "lecture_theatre",
   },
 ];
 

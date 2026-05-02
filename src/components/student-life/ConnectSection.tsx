@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { siteContact } from "@lib/siteContact";
 
 const ConnectSection = () => {
   return (
@@ -27,25 +28,22 @@ const ConnectSection = () => {
           <h3 className="subsection-title">Contact Information</h3>
           <div className="space-y-4">
             <a
-              href="mailto:studentaffairs@university.edu"
+              href={`mailto:${siteContact.email}`}
               className="flex items-center gap-3 transition-colors"
             >
               <Mail className="size-5" />
-              <span>soitrgpv@ac.in</span>
+              <span>{siteContact.email}</span>
             </a>
             <a
-              href="tel:+911234567890"
+              href={siteContact.phoneLink}
               className="flex items-center gap-3 transition-colors"
             >
               <Phone className="size-5" />
-              <span>+91 755 2678 844</span>
+              <span>{siteContact.phoneDisplay}</span>
             </a>
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 size-5 shrink-0" />
-              <span>
-                School of Information Technology, RGPV Campus, Airport Road,
-                Gandhi Nagar, Bhopal, Madhya Pradesh 462033
-              </span>
+              <span>{siteContact.address}</span>
             </div>
           </div>
         </div>
@@ -59,7 +57,7 @@ const ConnectSection = () => {
           <div className="flex gap-4">
             
             <a
-              href="https://www.linkedin.com/school/soitrgpv"
+              href={siteContact.linkedInUrl}
               className="group rounded-lg p-3 transition-colors"
             >
               <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +65,7 @@ const ConnectSection = () => {
               </svg>
             </a>
             <a
-              href="https://www.instagram.com/soit_rgpv/"
+              href={siteContact.instagramUrl}
               className="group rounded-lg p-3 transition-colors"
             >
               <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">

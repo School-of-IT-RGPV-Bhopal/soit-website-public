@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, ExternalLink } from "lucide-react";
+import { siteContact } from "@lib/siteContact";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -126,10 +127,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900">Address</h4>
-                    <p className="text-gray-600">
-                      School of Information Technology, RGPV Campus, Airport
-                      Road, Gandhi Nagar, Bhopal, Madhya Pradesh 462033
-                    </p>
+                    <p className="text-gray-600">{siteContact.address}</p>
                   </div>
                 </div>
 
@@ -152,7 +150,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900">Email</h4>
-                    <p className="text-gray-600">soit@rgpv.ac.in</p>
+                    <a
+                      href={`mailto:${siteContact.email}`}
+                      className="text-gray-600 transition-colors hover:text-primary"
+                    >
+                      {siteContact.email}
+                    </a>
                   </div>
                 </div>
 
@@ -175,7 +178,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+91 755 2678 844</p>
+                    <a
+                      href={siteContact.phoneLink}
+                      className="text-gray-600 transition-colors hover:text-primary"
+                    >
+                      {siteContact.phoneDisplay}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -188,7 +196,7 @@ export default function Contact() {
                     Location
                   </h4>
                   <a
-                    href="https://maps.google.com/maps?q=School%20of%20Information%20Technology,%20RGPV%20Campus,%20Airport%20Road,%20Gandhi%20Nagar,%20Bhopal,%20Madhya%20Pradesh%20462033"
+                    href={siteContact.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -214,7 +222,7 @@ export default function Contact() {
                     scrolling="no"
                     marginHeight={0}
                     marginWidth={0}
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=School%20of%20Information%20Technology,%20RGPV%20Campus,%20Airport%20Road,%20Gandhi%20Nagar,%20Bhopal,%20Madhya%20Pradesh%20462033+(School%20Of%20Information%20Technology)&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    src={siteContact.mapsEmbedUrl}
                     title="SoIT RGPV Location"
                     className="size-full"
                   ></iframe>

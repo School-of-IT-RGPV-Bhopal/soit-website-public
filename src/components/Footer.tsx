@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HashLink from "@components/HashLink";
 import FooterAnalyticsWidget from "@components/FooterAnalyticsWidget";
+import { siteContact } from "@lib/siteContact";
 
 export default function Footer() {
   return (
@@ -45,7 +46,7 @@ export default function Footer() {
             {/* Social Media Icons */}
             <div className="flex space-x-3">
               <a
-                href="https://www.linkedin.com/school/soitrgpv"
+                href={siteContact.linkedInUrl}
                 className="
                   group rounded-full bg-gray-100 p-3 text-gray-600
                   transition-all duration-300
@@ -58,7 +59,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/soit_rgpv/"
+                href={siteContact.instagramUrl}
                 className="
                   group rounded-full bg-gray-100 p-3 text-gray-600
                   transition-all duration-300
@@ -106,11 +107,7 @@ export default function Footer() {
                     Address
                   </p>
                   <p className="text-sm/relaxed text-gray-600">
-                    School of Information Technology
-                    <br />
-                    RGPV Campus, Airport Road
-                    <br />
-                    Gandhi Nagar, Bhopal, MP 462033
+                    {siteContact.address}
                   </p>
                 </div>
               </div>
@@ -136,13 +133,13 @@ export default function Footer() {
                     Email
                   </p>
                   <a
-                    href="mailto:soit@rgpv.ac.in"
+                    href={`mailto:${siteContact.email}`}
                     className="
                       text-sm text-gray-600 transition-colors
                       hover:text-secondary
                     "
                   >
-                    soit@rgpv.ac.in
+                    {siteContact.email}
                   </a>
                 </div>
               </div>
@@ -167,7 +164,15 @@ export default function Footer() {
                   <p className="mb-1 text-sm font-medium text-gray-800">
                     Phone
                   </p>
-                  <p className="text-sm text-gray-600">+91 755 2678 844</p>
+                  <a
+                    href={siteContact.phoneLink}
+                    className="
+                      text-sm text-gray-600 transition-colors
+                      hover:text-secondary
+                    "
+                  >
+                    {siteContact.phoneDisplay}
+                  </a>
                 </div>
               </div>
             </div>

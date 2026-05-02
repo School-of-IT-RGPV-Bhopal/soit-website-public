@@ -16,23 +16,6 @@
   --color-gray-light: #f5f5f5;
   --color-gray: #e0e0e0;
 
-  /* Fonts */
-  --font-inter: var(--font-inter), sans-serif;
-  --font-poppins: var(--font-poppins), sans-serif;
-  --font-playfair: var(--font-playfair), serif;
-  --font-geist-sans: var(--font-geist-sans), sans-serif;
-  --font-geist-mono: var(--font-geist-mono), monospace;
-
-  /* Student Life Variables*/
-  --muted-foreground: #8e97a3;
-  --accent: #dbe8ef;
-  --accent-foreground: #193f66;
-  --border: #d8e0e8;
-  --heading: #0d2d4e;
-  --heading-accent: #2c6885;
-  --section-border: #acc5d2;
-  --sidebar-active: #13181f;
-
   /* Animations */
   @keyframes scroll {
     to {
@@ -60,7 +43,19 @@
       transform: rotate(360deg);
     }
   }
-  --animation-logo-spin: logo-spin 20s linear infinite;
+  --animate-logo-spin: logo-spin 20s linear infinite;
+}
+
+:root {
+  /* Student Life variables */
+  --muted-foreground: #8e97a3;
+  --accent: #dbe8ef;
+  --accent-foreground: #193f66;
+  --border: #d8e0e8;
+  --heading: #0d2d4e;
+  --heading-accent: #2c6885;
+  --section-border: #acc5d2;
+  --sidebar-active: #13181f;
 }
 
 @layer base {
@@ -71,6 +66,26 @@
   body {
     @apply font-inter text-foreground bg-background;
   }
+}
+
+@utility font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+@utility font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@utility font-playfair {
+  font-family: var(--font-playfair), serif;
+}
+
+@utility font-geist-sans {
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+@utility font-geist-mono {
+  font-family: var(--font-geist-mono), monospace;
 }
 
 @utility page-wrapper {
@@ -100,16 +115,16 @@
 @utility section-title {
   font-family: var(--font-playfair), serif;
   font-size: 42px;
-  color: hsl(var(--heading));
+  color: var(--heading);
   margin-bottom: 1rem;
-  border-bottom: 1px solid hsl(var(--section-border));
+  border-bottom: 1px solid var(--section-border);
 }
 
 @utility subsection-title {
   font-family: var(--font-playfair), serif;
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 500;
-  color: hsl(var(--heading-accent));
+  color: var(--heading-accent);
   margin-bottom: 0.75rem;
 }
 
@@ -119,30 +134,30 @@
 
   /* Typography & Color */
   font-family: var(--font-inter), sans-serif;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 
   /* Hover state - Moved inside for cleaner organization */
   &:hover {
-    color: hsl(var(--sidebar-active));
+    color: var(--sidebar-active);
   }
 }
 
 @utility sidebar-link-active {
   @apply font-semibold;
-  color: hsl(var(--sidebar-active));
-  border-left-color: hsl(var(--sidebar-active));
+  color: var(--sidebar-active);
+  border-left-color: var(--sidebar-active);
 }
 
 @utility content-block {
   @apply p-6 md:p-8 rounded-lg;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
-  border: 1px solid hsl(var(--border) / 0.5);
+  border: 1px solid color-mix(in oklab, var(--border) 50%, transparent);
 }
 
 @utility amenity-card {
   @apply rounded-lg overflow-hidden transition-shadow;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  border: 1px solid hsl(var(--border) / 0.3);
+  border: 1px solid color-mix(in oklab, var(--border) 30%, transparent);
 }
 
 @utility amenity-card-hover {
@@ -151,23 +166,23 @@
 
 @utility event-badge {
   @apply inline-block px-3 py-1 rounded-full text-sm font-medium;
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: var(--accent);
+  color: var(--accent-foreground);
 }
 
 @utility committee-tab {
   @apply px-4 py-3 cursor-pointer transition-colors border-b-2 border-transparent;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 @utility committee-tab-hover {
-  color: hsl(var(--foreground));
+  color: var(--color-foreground);
 }
 
 @utility committee-tab-active {
   @apply font-medium;
-  color: hsl(var(--heading-accent));
-  border-bottom-color: hsl(var(--heading-accent));
+  color: var(--heading-accent);
+  border-bottom-color: var(--heading-accent);
 }
 
 @utility fade-up {

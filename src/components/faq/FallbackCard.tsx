@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { siteContact } from "@lib/siteContact";
 
-const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
+const supportEmail = siteContact.supportEmail;
 
 export default function FallbackCard() {
   return (

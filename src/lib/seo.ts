@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { siteContact } from "@lib/siteContact";
 
 export const siteConfig = {
   name: "SOIT RGPV - School of Information Technology",
@@ -93,7 +94,7 @@ export const organizationSchema = {
     "streetAddress": "University Institute of Technology, RGPV",
     "addressLocality": "Bhopal",
     "addressRegion": "Madhya Pradesh",
-    "postalCode": "462033",
+    "postalCode": siteContact.postalCode,
     "addressCountry": "IN"
   },
   "geo": {
@@ -101,8 +102,8 @@ export const organizationSchema = {
     "latitude": 23.2599,
     "longitude": 77.4126
   },
-  "telephone": "+91-755-XXXXXXX",
-  "email": "info@soitrgpv.ac.in",
+  "telephone": siteContact.phoneDisplay,
+  "email": siteContact.email,
   "foundingDate": "2004",
   "parentOrganization": {
     "@type": "EducationalOrganization",

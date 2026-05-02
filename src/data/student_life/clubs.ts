@@ -109,7 +109,7 @@ export const clubs: Club[] = [
 
   {
     id: "aws",
-    name: "AWS Cloud Club",
+    name: "AWS Student Builder Group",
     icon: Cloud,
     activities: {
       title: "Year Long Major Activities",
@@ -119,7 +119,7 @@ export const clubs: Club[] = [
       ],
     },
     description:
-      "AWS Cloud Club at the School of Information Technology, RGPV is student-led community passionate about discovering how cloud technology shapes the modern world",
+      "AWS Student Builder Group at the School of Information Technology, RGPV is student-led community passionate about discovering how cloud technology shapes the modern world",
   },
   // {
   //   id: "ieee",

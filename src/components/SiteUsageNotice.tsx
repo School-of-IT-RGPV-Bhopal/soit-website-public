@@ -155,8 +155,7 @@ export default function SiteUsageNotice() {
       justify-end
       sm:bottom-6 
       right-18  left-4 
-      sm:right-20  sm:left-6
-  
+      sm:right-20  sm:left-6  
     "
     >
       <aside
