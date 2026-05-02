@@ -66,7 +66,7 @@ export default function Header() {
             </div>
             
             <div className="ml-3">
-              <h1 className="font-poppins text-xl font-bold text-primary">SoIT</h1>
+              <p className="font-poppins text-xl font-bold text-primary">SoIT</p>
               <p className="text-xs text-gray-600">School of Information Technology</p>
             </div>
           </div>

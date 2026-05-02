@@ -72,7 +72,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL('https://soitrgpv.ac.in'),
   manifest: "/manifest.ts",
   icons: {

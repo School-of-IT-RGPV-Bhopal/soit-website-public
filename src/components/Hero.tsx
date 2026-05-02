@@ -234,9 +234,9 @@ export default function Hero() {
 
               {/* Stats Grid */}
               <div className="p-6">
-                <h3 className="mb-4 text-center text-xl font-bold text-primary">
+                <h2 className="mb-4 text-center text-xl font-bold text-primary">
                   Why Choose SoIT?
-                </h3>
+                </h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div
                     className="

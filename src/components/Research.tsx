@@ -136,29 +136,6 @@ export default function Research() {
                 {area.title}
               </h3>
               <p className="text-gray-700">{area.description}</p>
-              <button
-                className="
-                  mx-auto mt-4 flex items-center justify-center font-medium
-                  text-foreground
-                  hover:underline
-                "
-              >
-                {/* Explore Research
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-1 size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                > */}
-                {/* <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg> */}
-              </button>
             </div>
           ))}
         </div>

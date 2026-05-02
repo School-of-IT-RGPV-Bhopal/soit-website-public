@@ -155,6 +155,7 @@ export default function Faculty() {
           <button
             onClick={() => scroll("left")}
             disabled={!scrollState.canScrollLeft}
+            aria-label="Scroll faculty list left"
             className={`flex size-11 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-all ${
               !scrollState.canScrollLeft
                 ? "cursor-not-allowed opacity-40"
@@ -166,6 +167,7 @@ export default function Faculty() {
           <button
             onClick={() => scroll("right")}
             disabled={!scrollState.canScrollRight}
+            aria-label="Scroll faculty list right"
             className={`flex size-11 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-all ${
               !scrollState.canScrollRight
                 ? "cursor-not-allowed opacity-40"
@@ -180,6 +182,8 @@ export default function Faculty() {
         <div
           ref={scrollContainerRef}
           onScroll={checkScroll}
+          tabIndex={0}
+          aria-label="Faculty profile carousel"
           className="
             flex snap-x snap-mandatory gap-6 overflow-x-auto pb-12 pt-2
             cursor-grab active:cursor-grabbing
@@ -317,6 +321,7 @@ function FacultyModal({
         {/* Standard Modal Close Action */}
         <button
           onClick={onClose}
+          aria-label="Close faculty profile"
           className="
             absolute top-4 right-4 z-20 rounded-full bg-black/40 p-2 text-white
             backdrop-blur-md transition-colors hover:bg-black/60 md:bg-gray-100 
