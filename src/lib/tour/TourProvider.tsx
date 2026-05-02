@@ -3,6 +3,11 @@
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { useEffect, useRef } from "react";
+import {
+  SITE_USAGE_NOTICE_STORAGE_KEY,
+  SITE_USAGE_NOTICE_DISMISSED_EVENT,
+  SITE_USAGE_NOTICE_SELECTOR,
+} from "@lib/siteUsageNotice";
 import { useTour } from "./useTour";
 
 const TOUR_START_DELAY_MS = 500;
@@ -17,6 +22,7 @@ export default function TourProvider() {
 
   const instanceRef = useRef<ReturnType<typeof driver> | null>(null);
   const hasStartedRef = useRef(false);
+  const hasAcknowledgedSiteUsageNoticeRef = useRef(false);
   const skipMarkSeenRef = useRef(false);
 
   useEffect(() => {
@@ -28,6 +34,26 @@ export default function TourProvider() {
 
     const hasActiveSplash = () => {
       return document.querySelector(SPLASH_SELECTOR) !== null;
+    };
+
+    const hasActiveSiteUsageNotice = () => {
+      return document.querySelector(SITE_USAGE_NOTICE_SELECTOR) !== null;
+    };
+
+    const hasAcknowledgedSiteUsageNotice = () => {
+      if (hasAcknowledgedSiteUsageNoticeRef.current) {
+        return true;
+      }
+
+      try {
+        const hasAcknowledged =
+          window.localStorage.getItem(SITE_USAGE_NOTICE_STORAGE_KEY) === "true";
+
+        hasAcknowledgedSiteUsageNoticeRef.current = hasAcknowledged;
+        return hasAcknowledged;
+      } catch {
+        return false;
+      }
     };
 
     const startTour = () => {
@@ -205,7 +231,7 @@ export default function TourProvider() {
       timerId = window.setTimeout(() => {
         timerId = null;
 
-        if (hasActiveSplash()) {
+        if (hasActiveSplash() || !hasAcknowledgedSiteUsageNotice()) {
           return;
         }
 
@@ -213,8 +239,16 @@ export default function TourProvider() {
       }, TOUR_START_DELAY_MS);
     };
 
-    const tryStartWhenReady = () => {
-      if (hasActiveSplash()) {
+    const tryStartWhenReady = (event?: Event) => {
+      if (event instanceof CustomEvent && event.detail?.acknowledged) {
+        hasAcknowledgedSiteUsageNoticeRef.current = true;
+      }
+
+      if (
+        hasActiveSplash() ||
+        hasActiveSiteUsageNotice() ||
+        !hasAcknowledgedSiteUsageNotice()
+      ) {
         return;
       }
 
@@ -222,10 +256,18 @@ export default function TourProvider() {
     };
 
     window.addEventListener(SPLASH_DISMISSED_EVENT, tryStartWhenReady);
+    window.addEventListener(
+      SITE_USAGE_NOTICE_DISMISSED_EVENT,
+      tryStartWhenReady,
+    );
     tryStartWhenReady();
 
     return () => {
       window.removeEventListener(SPLASH_DISMISSED_EVENT, tryStartWhenReady);
+      window.removeEventListener(
+        SITE_USAGE_NOTICE_DISMISSED_EVENT,
+        tryStartWhenReady,
+      );
 
       if (timerId !== null) {
         window.clearTimeout(timerId);

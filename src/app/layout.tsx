@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import SiteUsageNotice from "@components/SiteUsageNotice";
 import SplashScreen from "@components/SplashScreen";
 import ChatWidget from "@components/faq/ChatWidget";
 import TourProvider from "@lib/tour/TourProvider";
@@ -400,6 +401,7 @@ export default function RootLayout({
       >
         <AxeProvider /> {/* Accessibility Testing */}
         <SplashScreen />
+        <SiteUsageNotice />
         <TourProvider />
         <div className="fixed inset-x-0 top-0 z-50 flex flex-col">
           {/* <ConstructionBanner /> */}
