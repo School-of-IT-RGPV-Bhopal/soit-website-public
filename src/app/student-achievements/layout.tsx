@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Student Achievements at SOIT RGPV - Awards, Competitions & Recognition",
-  description: "Outstanding student achievements at SOIT RGPV including Smart India Hackathon winners, ACM ICPC qualifications, research publications, industry certifications, and academic excellence. Our students excel in technical competitions, research, and innovation.",
+  title: "Student Achievements - School of Information Technology, RGPV Bhopal",
+  description: "Outstanding student achievements at School of Information Technology, RGPV including Smart India Hackathon winners, ACM ICPC qualifications, research publications, industry certifications, and academic excellence. Our students excel in technical competitions, research, and innovation.",
   keywords: [
     "RGPV student achievements",
     "SOIT RGPV awards",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "Competition winners Bhopal"
   ],
   openGraph: {
-    title: "Student Achievements at SOIT RGPV - Excellence in Innovation & Competition",
-    description: "Celebrating outstanding student achievements including hackathon victories, research excellence, and industry recognition at RGPV Bhopal.",
+    title: "Student Achievements - School of Information Technology, RGPV Bhopal",
+    description: "Celebrating outstanding student achievements including hackathon victories, research excellence, and industry recognition at School of Information Technology, RGPV Bhopal.",
     url: "https://soitrgpv.ac.in/student-achievements",
     images: [
       {
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Student Achievements at SOIT RGPV",
-    description: "Outstanding achievements by RGPV students in competitions, research, and innovation.",
+    title: "Student Achievements - School of Information Technology, RGPV Bhopal",
+    description: "Outstanding achievements by students in competitions, research, and innovation at School of Information Technology, RGPV.",
     images: ["/images/achievements-bg.jpeg"],
   },
   alternates: {

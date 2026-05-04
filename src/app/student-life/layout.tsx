@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Student Life at SOIT RGPV - Campus Culture & Activities | UIT RGPV Bhopal",
-  description: "Experience vibrant student life at SOIT RGPV with diverse clubs, cultural events, festivals, sports activities, and student engagement programs. Discover academic blocks, city of Bhopal, and holistic development opportunities at RGPV.",
+  title: "Student Life - School of Information Technology, RGPV Bhopal",
+  description: "Experience vibrant student life at School of Information Technology, RGPV with diverse clubs, cultural events, festivals, sports activities, and student engagement programs. Discover academic blocks, city of Bhopal, and holistic development opportunities.",
   keywords: [
     "RGPV student life",
     "SOIT RGPV campus culture",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "Student mentorship RGPV"
   ],
   openGraph: {
-    title: "Student Life at SOIT RGPV - Vibrant Campus Culture & Activities",
-    description: "Discover the vibrant student life at RGPV Bhopal with diverse clubs, events, and development opportunities for holistic growth.",
+    title: "Student Life - School of Information Technology, RGPV Bhopal",
+    description: "Discover the vibrant student life at School of Information Technology, RGPV Bhopal with diverse clubs, events, and development opportunities for holistic growth.",
     url: "https://soitrgpv.ac.in/student-life",
     images: [
       {
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Student Life at SOIT RGPV",
-    description: "Vibrant campus culture and student activities at RGPV Bhopal.",
+    title: "Student Life - School of Information Technology, RGPV Bhopal",
+    description: "Vibrant campus culture and student activities at School of Information Technology, RGPV Bhopal.",
     images: ["/images/soitrgpv_building.png"],
   },
   alternates: {

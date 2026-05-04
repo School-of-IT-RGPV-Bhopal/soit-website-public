@@ -22,26 +22,6 @@ import AxeProvider from "./AxeProvider";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import { siteContact } from "@lib/siteContact";
 
-// // Construction Banner Component
-// const ConstructionBanner = () => {
-//   return (
-//     <div className="z-100 w-full bg-black px-4 py-2 text-center text-sm text-white">
-//       <span className="inline-flex items-center gap-2">
-//         <span className="relative flex size-2">
-//           <span
-//             className="
-//               absolute inline-flex h-full w-full animate-ping rounded-full
-//               bg-yellow-400 opacity-75
-//             "
-//           ></span>
-//           <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-500"></span>
-//         </span>
-//         Website Under Construction — Coming Soon
-//       </span>
-//     </div>
-//   );
-// };
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -85,10 +65,10 @@ export const metadata: Metadata = {
     apple: "/favicon.ico",
   },
   title: {
-    default: "SOIT RGPV - School of Information Technology | RGPV Bhopal",
-    template: "%s | SOIT RGPV - School of Information Technology"
+    default: "SOIT RGPV - School of Information Technology, RGPV Bhopal",
+    template: "%s | SOIT RGPV"
   },
-  description: "Welcome to SOIT RGPV - Leading School of Information Technology at University Institute of Technology, RGPV Bhopal. Offering world-class B.Tech & M.Tech programs in Computer Science, IT, AI/ML with 95%+ placement record, industry partnerships, research excellence and state-of-the-art facilities.",
+  description: "School of Information Technology (SOIT), RGPV Bhopal. Offering world-class B.Tech & M.Tech programs in Computer Science, IT, AI/ML with 95%+ placement record, industry partnerships, research excellence and state-of-the-art facilities.",
   keywords: [
     "SOIT RGPV",
     "School of Information Technology RGPV", 
@@ -140,8 +120,6 @@ export const metadata: Metadata = {
     "Best engineering college Madhya Pradesh",
     "Top engineering college India",
     "Engineering admission 2024",
-    "RGPV homepage",
-    "UIT RGPV admission",
     "Computer Science engineering Bhopal"
   ],
   authors: [{ name: "SOIT RGPV" }],
@@ -163,8 +141,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://soitrgpv.ac.in",
     siteName: "SOIT RGPV - School of Information Technology",
+<<<<<<< HEAD:src/app/layout.tsx
     title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
     description: "Leading School of Information Technology at RGPV Bhopal offering world-class engineering education, research opportunities, and excellent placement records in Computer Science and IT with 95%+ placement record.",
+=======
+    title: "SOIT RGPV - School of Information Technology, RGPV Bhopal",
+    description: "School of Information Technology (SOIT) at RGPV Bhopal offering world-class engineering education, research opportunities, and excellent placement records in Computer Science and IT.",
+>>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
     images: [
       {
         url: "/images/campus-hero.jpg",
@@ -176,17 +159,28 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+<<<<<<< HEAD:src/app/layout.tsx
     title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
     description: "Leading engineering education at RGPV Bhopal with 95%+ placements, world-class faculty, research excellence and industry partnerships in Computer Science and IT.",
+=======
+    title: "SOIT RGPV - School of Information Technology, RGPV Bhopal",
+    description: "Leading engineering education at RGPV Bhopal with good placements, world-class faculty, and research excellence in Computer Science and IT.",
+>>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
     images: ["/images/campus-hero.jpg"],
   },
   alternates: {
     canonical: "https://soitrgpv.ac.in",
   },
+<<<<<<< HEAD:src/app/layout.tsx
   // TODO: Add
   // verification: {
   //   google: "your-google-verification-code", // Add actual verification code
   // },
+=======
+  verification: {
+    google: "your-google-verification-code",
+  },
+>>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
   category: "Education",
   classification: "Engineering College",
   other: {
@@ -197,9 +191,9 @@ export const metadata: Metadata = {
     "DC.title": "SOIT RGPV - School of Information Technology",
     "DC.creator": "SOIT RGPV",
     "DC.subject": "Engineering Education, Computer Science, Information Technology",
-    "DC.description": "Premier School of Information Technology at RGPV Bhopal offering quality engineering education",
+    "DC.description": "School of Information Technology at RGPV Bhopal offering quality engineering education",
     "DC.publisher": "RGPV",
-    "DC.contributor": "University Institute of Technology",
+    "DC.contributor": "School of Information Technology",
     "DC.date": new Date().toISOString(),
     "DC.type": "Text",
     "DC.format": "text/html",
@@ -221,18 +215,18 @@ export default function RootLayout({
       {
         "@type": "EducationalOrganization",
         "@id": "https://soitrgpv.ac.in/#organization",
-        "name": "School of Information Technology, RGPV",
-        "alternateName": ["SOIT RGPV", "UIT RGPV", "University Institute of Technology RGPV"],
+        "name": "School of Information Technology, RGPV Bhopal",
+        "alternateName": ["SOIT RGPV", "SOIT"],
         "url": "https://soitrgpv.ac.in",
         "logo": {
           "@type": "ImageObject",
           // TODO: Add actual logo URL
           "url": "https://soitrgpv.ac.in/images/logo.png"
         },
-        "description": "School of Information Technology at RGPV Bhopal offering world-class engineering education in Computer Science and Information Technology with excellent placement records.",
+        "description": "School of Information Technology, RGPV Bhopal offering world-class engineering education in Computer Science and Information Technology with excellent placement records.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "University Institute of Technology, RGPV",
+          "streetAddress": "RGPV Campus",
           "addressLocality": "Bhopal",
           "addressRegion": "Madhya Pradesh",
           "postalCode": siteContact.postalCode,
@@ -299,10 +293,10 @@ export default function RootLayout({
       {
         "@type": "CollegeOrUniversity",
         "@id": "https://soitrgpv.ac.in/#college",
-        "name": "University Institute of Technology, RGPV",
-        "alternateName": ["UIT RGPV", "RGPV Engineering College"],
+        "name": "School of Information Technology, RGPV Bhopal",
+        "alternateName": ["SOIT RGPV", "SOIT"],
         "url": "https://soitrgpv.ac.in",
-        "description": "Premier engineering college under RGPV offering undergraduate and postgraduate programs in engineering and technology.",
+        "description": "Premier School of Information Technology under RGPV offering undergraduate and postgraduate programs in Computer Science and Information Technology.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bhopal",
@@ -354,7 +348,6 @@ export default function RootLayout({
         <meta name="msvalidate.01" content="your-bing-verification-code" />
         <meta name="yandex-verification" content="your-yandex-verification-code" />
         
-        {/* Additional SEO Meta Tags */}
         <meta name="rating" content="general" />
         <meta name="distribution" content="global" />
         <meta name="revisit-after" content="7 days" />
@@ -364,30 +357,24 @@ export default function RootLayout({
         <meta name="geo.position" content="23.2599;77.4126" />
         <meta name="ICBM" content="23.2599, 77.4126" />
         
-        {/* Educational Institution Specific */}
         <meta name="institution-type" content="Engineering College" />
         <meta name="education-level" content="Higher Education" />
         <meta name="academic-year" content="2024-25" />
         
-        {/* Local Business */}
         <meta property="business:contact_data:locality" content="Bhopal" />
         <meta property="business:contact_data:region" content="Madhya Pradesh" />
         <meta property="business:contact_data:country_name" content="India" />
         
-        {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         
-        {/* Canonical and alternate links */}
         <link rel="canonical" href="https://soitrgpv.ac.in" />
         <link rel="alternate" hrefLang="en-IN" href="https://soitrgpv.ac.in" />
         <link rel="alternate" hrefLang="hi-IN" href="https://soitrgpv.ac.in/hi" />
         
-        {/* Sitemap */}
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         
-        {/* RSS Feed */}
         <link rel="alternate" type="application/rss+xml" title="SOIT RGPV News & Events" href="/rss.xml" />
       </head>
       <body
@@ -405,10 +392,9 @@ export default function RootLayout({
         <SiteUsageNotice />
         <TourProvider />
         <div className="fixed inset-x-0 top-0 z-50 flex flex-col">
-          {/* <ConstructionBanner /> */}
           <Header />
         </div>
-        {/* Add padding to account for fixed header and banner */}
+        {/* Add padding to account for fixed header */}
         <main className="page-wrapper pt-20">{children}</main>
         <Footer />
         <SpeedInsights />

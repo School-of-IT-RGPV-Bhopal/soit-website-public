@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Placements at SOIT RGPV - 95%+ Placement Record | Top Companies Recruitment",
-  description: "Excellent placement opportunities at SOIT RGPV with 95%+ placement record. Top companies like TCS, Infosys, Wipro, Amazon, Microsoft recruit from our Computer Science and IT programs. Highest package: ₹45 LPA, Average package: ₹8.5 LPA.",
+  title: "Placements - School of Information Technology, RGPV Bhopal | 95%+ Placement Record",
+  description: "Excellent placement opportunities at School of Information Technology, RGPV with 95%+ placement record. Top companies like TCS, Infosys, Wipro, Amazon, Microsoft recruit from our Computer Science and IT programs. Highest package: ₹45 LPA, Average package: ₹8.5 LPA.",
   keywords: [
     "RGPV placements",
     "SOIT RGPV placement statistics",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "Placement trends RGPV"
   ],
   openGraph: {
-    title: "Placements at SOIT RGPV - 95%+ Placement Record | Top Companies",
-    description: "Outstanding placement opportunities with top companies recruiting from RGPV. Highest package ₹45 LPA, excellent career prospects in Computer Science and IT.",
+    title: "Placements - School of Information Technology, RGPV Bhopal | 95%+ Placement Record",
+    description: "Outstanding placement opportunities with top companies recruiting from School of Information Technology, RGPV. Highest package ₹45 LPA, excellent career prospects in Computer Science and IT.",
     url: "https://soitrgpv.ac.in/placements",
     images: [
       {
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Placements at SOIT RGPV - 95%+ Placement Record",
-    description: "Excellent placement opportunities with top companies at RGPV Bhopal.",
+    title: "Placements - School of Information Technology, RGPV Bhopal",
+    description: "Excellent placement opportunities with top companies at School of Information Technology, RGPV Bhopal.",
     images: ["/images/placements-hero.jpg"],
   },
   alternates: {

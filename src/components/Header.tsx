@@ -290,11 +290,11 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className={`
-        overflow-hidden transition-all duration-300
+        transition-all duration-300
         lg:hidden
-        ${mobileMenuOpen ? `max-h-screen bg-white shadow-lg` : `max-h-0`}
+        ${mobileMenuOpen ? `max-h-[calc(100vh-5rem)] overflow-y-auto bg-white shadow-lg` : `max-h-0 overflow-hidden`}
       `}>
-        <div className="space-y-1 px-4 py-2">
+        <div className="space-y-1 px-4 py-2 pb-4">
           <Link href="/" className="
             block py-2 font-medium text-gray-700
             hover:text-primary

@@ -1414,8 +1414,6 @@ export default function Gallery() {
   );
 }
 
-// // "use client";
-
 // // import { useEffect, useMemo, useRef, useCallback } from "react";
 // // import Image from "next/image";
 // // import { useGesture } from "@use-gesture/react";

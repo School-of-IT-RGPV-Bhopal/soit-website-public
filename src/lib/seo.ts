@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { siteContact } from "@lib/siteContact";
 
 export const siteConfig = {
-  name: "SOIT RGPV - School of Information Technology",
-  description: "Premier School of Information Technology at University Institute of Technology, RGPV Bhopal offering world-class engineering education in Computer Science and IT with excellent placement records.",
+  name: "School of Information Technology, RGPV Bhopal",
+  description: "Premier School of Information Technology, RGPV Bhopal offering world-class engineering education in Computer Science and IT with excellent placement records.",
   url: "https://soitrgpv.ac.in",
   ogImage: "/images/campus-hero.jpg",
   keywords: [
@@ -84,14 +84,14 @@ export function constructMetadata({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "name": "School of Information Technology, RGPV",
-  "alternateName": ["SOIT RGPV", "UIT RGPV"],
+  "name": "School of Information Technology, RGPV Bhopal",
+  "alternateName": ["SOIT RGPV", "SOIT"],
   "url": "https://soitrgpv.ac.in",
   "logo": "https://soitrgpv.ac.in/images/logo.png",
   "description": siteConfig.description,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "University Institute of Technology, RGPV",
+    "streetAddress": "RGPV Campus",
     "addressLocality": "Bhopal",
     "addressRegion": "Madhya Pradesh",
     "postalCode": siteContact.postalCode,
@@ -144,8 +144,8 @@ export function generateSEOUrl(title: string): string {
 // Meta tags for different page types
 export const pageMetaTags = {
   homepage: {
-    title: "SOIT RGPV - School of Information Technology | UIT RGPV Bhopal",
-    description: "Leading School of Information Technology at RGPV Bhopal offering world-class B.Tech & M.Tech programs in Computer Science, IT, AI/ML with 95%+ placement record and industry partnerships.",
+    title: "School of Information Technology, RGPV Bhopal",
+    description: "Leading School of Information Technology, RGPV Bhopal offering world-class B.Tech & M.Tech programs in Computer Science, IT, AI/ML with 95%+ placement record and industry partnerships.",
     keywords: [
       ...siteConfig.keywords,
       "RGPV homepage",
@@ -155,8 +155,8 @@ export const pageMetaTags = {
     ]
   },
   placements: {
-    title: "Placements at SOIT RGPV - 95%+ Placement Record | Top Companies",
-    description: "Excellent placement opportunities at SOIT RGPV with 95%+ placement record. Top companies like TCS, Infosys, Amazon, Microsoft recruit from our programs.",
+    title: "Placements - School of Information Technology, RGPV Bhopal",
+    description: "Excellent placement opportunities at School of Information Technology, RGPV with 95%+ placement record. Top companies like TCS, Infosys, Amazon, Microsoft recruit from our programs.",
     keywords: [
       "RGPV placements",
       "SOIT RGPV placement statistics", 
@@ -166,8 +166,8 @@ export const pageMetaTags = {
     ]
   },
   achievements: {
-    title: "Student Achievements at SOIT RGPV - Awards & Recognition",
-    description: "Outstanding student achievements including Smart India Hackathon winners, research publications, industry certifications, and academic excellence at RGPV.",
+    title: "Student Achievements - School of Information Technology, RGPV Bhopal",
+    description: "Outstanding student achievements including Smart India Hackathon winners, research publications, industry certifications, and academic excellence at School of Information Technology, RGPV.",
     keywords: [
       "RGPV student achievements",
       "Smart India Hackathon RGPV",
@@ -176,8 +176,8 @@ export const pageMetaTags = {
     ]
   },
   amenities: {
-    title: "Campus Amenities at SOIT RGPV - World-Class Facilities",
-    description: "Explore modern campus amenities including auditorium, sports complex, library, hostels, and state-of-the-art academic facilities at RGPV Bhopal.",
+    title: "Campus Amenities - School of Information Technology, RGPV Bhopal",
+    description: "Explore modern campus amenities including auditorium, sports complex, library, hostels, and state-of-the-art academic facilities at School of Information Technology, RGPV Bhopal.",
     keywords: [
       "RGPV campus facilities",
       "SOIT RGPV amenities",

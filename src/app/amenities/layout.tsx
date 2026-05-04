@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Campus Amenities at SOIT RGPV - World-Class Facilities | UIT RGPV Bhopal",
-  description: "Explore world-class campus amenities at SOIT RGPV including modern auditorium, sports complex, central library, hostels, cafeteria, health center, and state-of-the-art academic facilities. Experience the best infrastructure for holistic education at RGPV Bhopal.",
+  title: "Campus Amenities - School of Information Technology, RGPV Bhopal",
+  description: "Explore world-class campus amenities at School of Information Technology, RGPV including modern auditorium, sports complex, central library, hostels, cafeteria, health center, and state-of-the-art academic facilities. Experience the best infrastructure for holistic education at RGPV Bhopal.",
   keywords: [
     "RGPV campus facilities",
     "SOIT RGPV amenities",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     "Residential facilities RGPV"
   ],
   openGraph: {
-    title: "Campus Amenities at SOIT RGPV - World-Class Facilities",
-    description: "Discover modern campus facilities and amenities at RGPV Bhopal including sports complex, library, hostels, and academic infrastructure.",
+    title: "Campus Amenities - School of Information Technology, RGPV Bhopal",
+    description: "Discover modern campus facilities and amenities at School of Information Technology, RGPV Bhopal including sports complex, library, hostels, and academic infrastructure.",
     url: "https://soitrgpv.ac.in/amenities",
     images: [
       {
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Campus Amenities at SOIT RGPV",
-    description: "World-class campus facilities and infrastructure at RGPV Bhopal.",
+    title: "Campus Amenities - School of Information Technology, RGPV Bhopal",
+    description: "World-class campus facilities and infrastructure at School of Information Technology, RGPV Bhopal.",
     images: ["/assets/GalleryImages/MainBuilding.jpeg"],
   },
   alternates: {
