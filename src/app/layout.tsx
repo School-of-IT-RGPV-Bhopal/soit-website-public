@@ -141,13 +141,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://soitrgpv.ac.in",
     siteName: "SOIT RGPV - School of Information Technology",
-<<<<<<< HEAD:src/app/layout.tsx
-    title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
-    description: "Leading School of Information Technology at RGPV Bhopal offering world-class engineering education, research opportunities, and excellent placement records in Computer Science and IT with 95%+ placement record.",
-=======
     title: "SOIT RGPV - School of Information Technology, RGPV Bhopal",
     description: "School of Information Technology (SOIT) at RGPV Bhopal offering world-class engineering education, research opportunities, and excellent placement records in Computer Science and IT.",
->>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
     images: [
       {
         url: "/images/campus-hero.jpg",
@@ -159,28 +154,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-<<<<<<< HEAD:src/app/layout.tsx
-    title: "SOIT RGPV - School of Information Technology, UTD RGPV Bhopal",
-    description: "Leading engineering education at RGPV Bhopal with 95%+ placements, world-class faculty, research excellence and industry partnerships in Computer Science and IT.",
-=======
     title: "SOIT RGPV - School of Information Technology, RGPV Bhopal",
-    description: "Leading engineering education at RGPV Bhopal with good placements, world-class faculty, and research excellence in Computer Science and IT.",
->>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
+    description: "Leading engineering education at RGPV Bhopal with excellent placements, world-class faculty, and research excellence in Computer Science and IT.",
     images: ["/images/campus-hero.jpg"],
   },
   alternates: {
     canonical: "https://soitrgpv.ac.in",
   },
-<<<<<<< HEAD:src/app/layout.tsx
-  // TODO: Add
-  // verification: {
-  //   google: "your-google-verification-code", // Add actual verification code
-  // },
-=======
   verification: {
     google: "your-google-verification-code",
   },
->>>>>>> cd22ff1 (refactor: update SEO metadata and normalize branding terminology across site):app/layout.tsx
   category: "Education",
   classification: "Engineering College",
   other: {
