@@ -24,7 +24,6 @@ const AcademicBlocksSection = () => {
       <div className="mx-auto max-w-6xl space-y-16">
         {blocks.map((block, index) => {
           const isReversed = index % 2 !== 0;
-
           return (
             <div
               key={block.id}
@@ -33,7 +32,9 @@ const AcademicBlocksSection = () => {
               }`}
             >
               {/* Image */}
-              <div className="relative w-full overflow-hidden rounded-xl aspect-4/3 sm:aspect-16/10 md:aspect-5/4">
+              <div className="relative mx-auto w-full max-w-lg overflow-hidden rounded-xl aspect-4/3 sm:aspect-16/10 md:aspect-16/10">
+
+
                 <Image
                   src={block.imageUrl}
                   alt={block.title}

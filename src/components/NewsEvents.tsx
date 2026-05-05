@@ -125,7 +125,10 @@ export default function NewsEvents() {
                     <h3 className="mb-2 text-xl font-semibold text-gray-900">
                       {item.title}
                     </h3>
-                    <p className="mb-4 text-gray-700">{item.excerpt}</p>
+                    <p className="mb-4 line-clamp-9 text-gray-700">
+  {item.excerpt}
+</p>
+
                     {/* <button className="text-blue-600 font-medium hover:text-blue-800 transition-colors flex items-center group">
                       Read More
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />

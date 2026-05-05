@@ -117,7 +117,7 @@
   font-size: 42px;
   color: var(--heading);
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--section-border);
+  /* border-bottom: 1px solid var(--section-border); */
 }
 
 @utility subsection-title {

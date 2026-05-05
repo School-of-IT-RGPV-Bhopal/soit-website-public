@@ -39,44 +39,17 @@ export const clubs: Club[] = [
     description:
       "The democratically elected Student Council serves as the principal body for all clubs and committees, ensuring accountability among all student bodies on campus. It creates, reviews, and updates policies and guidelines for student activities.",
     activities: {
-      title: "Year Long Major Activities",
+      title: "Sub Committees:",
       items: [
-        "Conducting literature related events and competitions (Debate, Extempore, etc.)",
-        "Holding weekly/monthly movie screenings and discussions",
+        "Public Relations",
+        "Sports",
+        "Mentorship & Guidance",
+        "Technical",
+        "Art, Culture & Heritage",
+        "Media & Marketing",
+        "Visual Arts"
       ],
     },
-    subCommittees: [
-      {
-        name: "Academic Committee",
-        role: "Scheduling classes, workshops, course design suggestions",
-        icon: BookOpen,
-      },
-      {
-        name: "Cultural Committee",
-        role: "Organizing cultural events and festivals",
-        icon: Megaphone,
-      },
-      {
-        name: "Sports Committee",
-        role: "Managing sports activities and tournaments",
-        icon: Trophy,
-      },
-      {
-        name: "Infrastructure Committee",
-        role: "Campus facilities and maintenance",
-        icon: Wrench,
-      },
-      {
-        name: "Media & Communications",
-        role: "PR, social media, and campus communications",
-        icon: Megaphone,
-      },
-      {
-        name: "Corporate Relations",
-        role: "Industry partnerships and placements",
-        icon: Briefcase,
-      },
-    ],
   },
   {
     id: "persona",
@@ -85,12 +58,12 @@ export const clubs: Club[] = [
     activities: {
       title: "Year Long Major Activities",
       items: [
-        "Vichaar Sangam: A two-day intellectual inter college event featuring engaging competitions like Group Discussions, Quiz Odyssey, and Lecturate, fostering communication, analytical skills, and innovation",
+        "Vichaar Sangam: A two-day intellectual inter college event featuring engaging competitions like Group Discussions, Quiz Odyssey, and Lecturate, fostering communication, analytical skills, and innovation.",
         "Workshop Arena: A series of intensive online sessions designed to equip students with practical, industry-relevant skills covering topics like GitHub mastery, LinkedIn networking, and career-focused guidance for exams like GATE and CAT, offering hands-on learning with actionable insight.",
       ],
     },
     description:
-      "Persona is the official personality development culb of the institution, focused on developing inter-personal skills through workshops, competitions, and industry interactions.",
+      "Persona is the official personality development culb of the institution, focused on developing inter-personal skills through workshops, competitions, and industry interactions. The club provides a space dedicated to self-improvement and personality grooming. Persona believes - Personality is the Garden and You Have to Nurture It.",
   },
   {
     id: "ecell",
@@ -101,6 +74,7 @@ export const clubs: Club[] = [
       items: [
         "Imprenditore 4.0: The annual flagship event of E-Cell RGPV, set the campus abuzz with bold ideas, AI-driven creativity, entrepreneurial spirit, and a strong focus on sustainable innovation",
         "Pitch 2 Elevate 2.0: A high-impact pitching competition that gave students the opportunity to present their startup ideas and strengthen them through expert feedback. The top 3 winning teams secured a fast-tracked pathway to the Zonal Round of Eureka.",
+        "Entrepreneurship Awareness Program (EAP): EAP introduces students to entrepreneurship and MSME support schemes."
       ],
     },
     description:
@@ -114,27 +88,13 @@ export const clubs: Club[] = [
     activities: {
       title: "Year Long Major Activities",
       items: [
-        "Through hands-on workshops, real-world projects, and beginner-friendly sessions, we explore the AWS Cloud across AI, security, data, automation, and more. Whether you're just getting started or already building, you'll find the guidance and resources you need to grow your cloud skills.",
-        "Holding weekly/monthly study jams",
+        "Introduction to Cloud Computing: Built a strong foundation of cloud concepts and real-world relevance.",
+        "AWS S3 Static Website Hosting: Guided students to build, deploy and share their own live portfolio."
       ],
     },
     description:
-      "AWS Student Builder Group at the School of Information Technology, RGPV is student-led community passionate about discovering how cloud technology shapes the modern world",
+      "AWS Student Builder Group at the School of Information Technology, RGPV is a student-led community focused on building practical skills in cloud computing and modern development practices. It brings together students who want to understand how applications are deployed, managed, and scaled using cloud platforms like AWS. Through hands-on workshops, guided sessions, and project-based learning, the group encourages students to move beyond theory and gain real experience by working on actual implementations. ",
   },
-  // {
-  //   id: "ieee",
-  //   name: "IEEE Student Branch",
-  //   icon: Cpu,
-  //   activities: {
-  //     title: "Year Long Major Activities",
-  //     items: [
-  //       "Conducting literature related events and competitions (Debate, Extempore, etc.)",
-  //       "Holding weekly/monthly movie screenings and discussions",
-  //     ],
-  //   },
-  //   description:
-  //     "The IEEE Student Branch is part of the world's largest technical professional organization, focused on advancing technology for humanity.",
-  // },
 
   {
     id: "gdg",
