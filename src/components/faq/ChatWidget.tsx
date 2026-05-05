@@ -8,7 +8,7 @@ const INITIAL_MESSAGE: ChatMessageData = {
   role: "bot",
   type: "text",
   content:
-    "Hi! I can answer questions about SoIT RGPV. What would you like to know?",
+    "Hi! I am Sarthak and I can answer questions about SoIT RGPV. What would you like to know?",
 };
 
 const LOADING_MESSAGE: ChatMessageData = {
@@ -184,11 +184,11 @@ export default function ChatWidget() {
       {isOpen ? (
         <section
           className="fixed right-4 bottom-24 z-50 flex w-[min(360px,calc(100vw-2rem))] max-h-[min(520px,calc(100dvh-7rem))] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-[0_24px_60px_-24px_rgba(15,23,42,0.45)] sm:right-6 sm:bottom-24"
-          aria-label="SOIT Assistant chat"
+          aria-label="Sarthak chat"
         >
           <div className="flex items-center justify-between bg-[#005F73] px-4 py-3 text-white">
             <div>
-              <p className="text-sm font-semibold">SOIT Assistant</p>
+              <p className="text-sm font-semibold">Sarthak</p>
               <p className="text-xs text-white/75">Ask about SoIT RGPV FAQs</p>
             </div>
             <div className="flex items-center gap-2">
@@ -294,7 +294,7 @@ export default function ChatWidget() {
           setIsOpen((currentValue) => !currentValue);
         }}
         className="fixed right-2 bottom-30 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#005F73] text-white shadow-[0_18px_40px_-20px_rgba(0,95,115,0.85)] transition-transform hover:scale-105 hover:bg-[#0b7285] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#005F73]/30 sm:right-2 sm:bottom-30"
-        aria-label={isOpen ? "Close SOIT Assistant" : "Open SOIT Assistant"}
+        aria-label={isOpen ? "Close Sarthak" : "Open Sarthak"}
       >
         {isOpen ? (
           <svg

@@ -31,7 +31,7 @@ const noticePoints = [
   {
     title: "Session-based interactions",
     description:
-      "Temporary session context may be used while you interact with features such as the SOIT Assistant so active requests and conversation flow can be handled during your visit.",
+      "Temporary session context may be used while you interact with features such as the SOIT AI Assistant, Sarthak, so active requests and conversation flow can be handled during your visit.",
   },
   {
     title: "Your acknowledgement",

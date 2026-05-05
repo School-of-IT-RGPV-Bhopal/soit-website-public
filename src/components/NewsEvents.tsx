@@ -2,9 +2,9 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { newsItems } from "@/data/news_and_events/news";
-import { upcomingEvents } from "@/data/news_and_events/upcoming_events";
+import WorkInProgress from "@/components/WorkInProgress";
 
 export default function NewsEvents() {
   const [activeTab, setActiveTab] = useState("news");
@@ -138,73 +138,13 @@ export default function NewsEvents() {
               ))}
             </div>
           ) : (
-            <div
-              className="
-              overflow-hidden rounded-lg bg-white opacity-100 shadow-md
-              transition-opacity duration-300
-            "
-            >
-              <div className="divide-y divide-gray-200">
-                {upcomingEvents.map((event) => (
-                  <div
-                    key={event.id}
-                    className="
-                      p-6 transition-colors duration-200
-                      hover:bg-gray-50
-                    "
-                  >
-                    <div
-                      className="
-                      flex flex-col gap-4
-                      md:flex-row md:items-center
-                    "
-                    >
-                      <div className="md:w-1/4">
-                        <div
-                          className="
-                          mb-1 flex items-center font-semibold text-blue-600
-                        "
-                        >
-                          <Calendar className="mr-2 size-4" />
-                          {event.date}
-                        </div>
-                        <div className="flex items-center text-gray-600">
-                          <Clock className="mr-2 size-4" />
-                          {event.time}
-                        </div>
-                      </div>
-                      <div className="md:w-1/2">
-                        <h3 className="mb-1 text-lg font-semibold text-gray-900">
-                          {event.title}
-                        </h3>
-                        <div className="flex items-center text-gray-600">
-                          <MapPin className="mr-2 size-4" />
-                          {event.venue}
-                        </div>
-                      </div>
-                      <div
-                        className="
-                        flex justify-start
-                        md:w-1/4 md:justify-end
-                      "
-                      >
-                        <button
-                          className="
-                          rounded-lg border-2 border-red-600 px-4 py-2 text-sm
-                          font-medium text-red-600 transition-all duration-200
-                          hover:bg-red-600 hover:text-white
-                          focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-                          focus:outline-none
-                        "
-                        >
-                          Register
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <WorkInProgress
+              embedded
+              showActions={false}
+              title="Upcoming events are coming soon"
+              description="We are lining up the next set of SoIT events and will publish the full schedule here shortly."
+              expectedLaunch="Please check back soon for new event announcements and registration details."
+            />
           )}
         </div>
 
