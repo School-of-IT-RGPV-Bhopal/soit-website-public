@@ -63,7 +63,7 @@ export const clubs: Club[] = [
       ],
     },
     description:
-      "Persona is the official personality development culb of the institution, focused on developing inter-personal skills through workshops, competitions, and industry interactions. The club provides a space dedicated to self-improvement and personality grooming. Persona believes - Personality is the Garden and You Have to Nurture It.",
+      "Persona is the official personality development culb of the institution, focused on developing inter-personal skills through workshops, competitions, and industry interactions.\n\nPersona believes - Personality is the Garden and You Have to Nurture It.",
   },
   {
     id: "ecell",
@@ -93,22 +93,48 @@ export const clubs: Club[] = [
       ],
     },
     description:
-      "AWS Student Builder Group at the School of Information Technology, RGPV is a student-led community focused on building practical skills in cloud computing and modern development practices. It brings together students who want to understand how applications are deployed, managed, and scaled using cloud platforms like AWS. Through hands-on workshops, guided sessions, and project-based learning, the group encourages students to move beyond theory and gain real experience by working on actual implementations. ",
+      "AWS Student Builder Group at the School of Information Technology, RGPV is a student-led community focused on building practical skills in cloud computing and modern development practices. It brings together students who want to understand how applications are deployed, managed, and scaled using cloud platforms like AWS. \n\nThrough hands-on workshops, guided sessions, and project-based learning, the group encourages students to move beyond theory and gain real experience. ",
   },
 
   {
     id: "gdg",
-    name: "GDG",
+    name: "Google Developers Group",
     icon: Cpu,
     activities: {
       title: "Year Long Major Activities",
       items: [
-        "Study Jams: Focused tracks on Google Cloud, Android development, and Machine Learning.",
-        "Workshops: Hands-on sessions on web development (React, Angular), Firebase, and Flutter.",
-        "​Hackathons: Competitive coding events where students build prototypes in a limited timeframe.",
+        "AI Odyssey 2026: A high-energy AI event featuring a blend of knowledge-driven and competitive activities including a tech quiz, mini hackathon, and creative challenges, designed to promote innovation and practical application.",
+        "Interactive Sub-Events: Engaging activities such as Problem Solver’s Lab, AI vs Human, UI Design with AI, and Meme Challenge that encouraged creativity, teamwork, and real-world problem solving.",
       ],
     },
     description:
-      "Google Developer Groups (GDG) on Campus SOIT is a community-driven program backed by Google for students at the School of Information Technology in Bhopal.",
+      "GDG on Campus SOIT is a community-driven program backed by Google for students at the School of Information Technology in Bhopal. The core goal of GDG SOIT is to bridge the gap between theory and practice. While college lectures cover the what, this community focuses on the how. Our goal is to make tech accessible for everyone, irrespective of their technical background.",
+  },
+  {
+    id:"ieee",
+    name: "IEEE RGPV",
+    icon: Cpu,
+    activities:{
+      title: "Year Long Major Activities",
+      items: [
+        "IEEE Hackathon: A competitive and innovation-driven hackathon where students collaborated to solve real-world challenges. Participants worked in teams to brainstorm, design, and develop solutions within a limited timeframe, fostering teamwork, critical thinking, and hands-on technical skills.",
+        "Eklavya: A flagship event of IEEE RGPV that focused on enhancing students' technical expertise and analytical thinking. The event included multiple rounds and challenges that tested problem-solving abilities, logical reasoning, and practical application of knowledge."
+
+      ],
+    },
+    description:"IEEE RGPV was a dynamic student branch committed to fostering innovation, research, and professional growth among students. It served as a platform where aspiring engineers and technologists enhanced their technical knowledge, leadership abilities, and industry exposure."
+  },
+  {
+    id:"medialcell",
+    name: "Media Cell",
+    icon: Cpu,
+    activities:{
+      title: "",
+      items: [
+        
+
+      ],
+    },
+    description:"The SoIT Media Cell is the creative and communication hub of the institution, responsible for managing the college’s digital presence and media-related activities. It plays a crucial role in capturing, creating, and promoting the vibrant campus life through various platforms.\n\nThe Media Cell handles photography, videography, graphic design, and social media management (LinkedIn and Instagram) for all academic, cultural, and technical events within the institution. \n\nThrough its activities, the SoIT Media Cell provides students with opportunities to develop skills in content creation, digital marketing, branding, and storytelling. It fosters creativity, teamwork, and professionalism while contributing to building a strong and engaging institutional identity."
   },
 ];

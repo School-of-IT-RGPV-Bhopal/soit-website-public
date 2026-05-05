@@ -43,7 +43,7 @@ const ClubsSection = () => {
       "
       >
         {/* Left: Club List */}
-        <aside className="space-y-4 overflow-y-auto pr-4 md:h-[300px]">
+        <aside className="space-y-4 overflow-y-auto pr-4 md:h-[380px]">
           {clubs.map((club) => {
             const isActive = club.id === activeId;
 
@@ -68,7 +68,7 @@ const ClubsSection = () => {
 
         {/* Right: Club Details */}
         <div className="max-w-3xl border-l border-b-black pl-6 pr-3 text-justify md:h-[380px] md:overflow-y-auto">
-          <p className="mb-8 leading-relaxed text-foreground/80">
+          <p className="mb-8 leading-relaxed text-foreground/80 whitespace-pre-line">
             {activeClub.description}
           </p>
 

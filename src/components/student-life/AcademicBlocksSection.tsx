@@ -48,7 +48,7 @@ const AcademicBlocksSection = () => {
               <div className="flex flex-col justify-center">
                 <h3 className="mb-3 text-2xl font-semibold">{block.title}</h3>
 
-                <p className="mb-4 text-justify leading-relaxed text-foreground/80">
+                <p className="mb-4 text-justify leading-relaxed whitespace-pre-line text-foreground/80">
                   {block.description}
                 </p>
 

@@ -11,7 +11,7 @@ export const blocks: CampusBlock[] = [
     id: "academic",
     title: "Academic Block",
     description:
-      "The Academic Block forms the core teaching environment of the institute, bringing together classrooms, faculty spaces, and academic support areas. It supports lectures, tutorials, presentations, and everyday academic interaction in a focused learning setting.",
+      "The Academic Block forms the core teaching environment of the institute, bringing together classrooms, faculty spaces, and academic support areas.\n\nIt supports lectures, tutorials, presentations, and everyday academic interaction in a focused learning setting.",
     features: [
       "Lecture Rooms",
       "Tutorial Spaces",
@@ -25,7 +25,7 @@ export const blocks: CampusBlock[] = [
     id: "administrative",
     title: "Administrative Block",
     description:
-      "The Administrative Block supports the daily functioning of the institute by housing key offices and service areas. It helps coordinate academic administration, institutional communication, records, and student-facing processes.",
+      "The Administrative Block supports the daily functioning of the institute by housing key offices and service areas.\n\nIt helps coordinate academic administration, institutional communication, records, and student-facing processes.",
     features: [
       "Director's Office",
       "Administrative Offices",
@@ -39,7 +39,7 @@ export const blocks: CampusBlock[] = [
     id: "computer-centre",
     title: "Knowledge Resource Center",
     description:
-      "The Knowledge Resource Center provides students with access to learning resources, reference material, and spaces for focused academic work. It supports independent study, research preparation, project work, and knowledge sharing beyond regular classroom learning.",
+      "The Knowledge Resource Center provides students with access to learning resources, reference material, and spaces for focused academic work.\n\nIt supports independent study, research preparation, project work, and knowledge sharing beyond regular classroom learning.",
     features: [
       "Reference Resources",
       "Reading Spaces",
@@ -47,13 +47,13 @@ export const blocks: CampusBlock[] = [
       "Project Study Areas",
       "Academic Resource Access",
     ],
-    imageUrl: "/assets/GalleryImages/krc.jpeg",
+    imageUrl: "/assets/GalleryImages/krc-2.jpeg",
   },
   {
     id: "conference",
     title: "Conference Hall",
     description:
-      "The Conference Hall provides a dedicated venue for academic gatherings, institutional meetings, invited talks, and student-facing programs. It serves as an important shared space for formal discussions, presentations, and collaborative events.",
+      "The Conference Hall provides a dedicated venue for academic gatherings, institutional meetings, invited talks, and student-facing programs.\n\nIt serves as an important shared space for formal discussions, presentations, and collaborative events.",
     features: [
       "Academic Talks",
       "Guest Lectures",
@@ -81,7 +81,7 @@ export const blocks: CampusBlock[] = [
     id: "department-library",
     title: "Department Library",
     description:
-      "The Department Library offers a quiet academic space for reading, reference, and self-study. It supports students and faculty with useful learning material, study-friendly seating, and an environment suited for focused preparation.",
+      "The Department Library offers a quiet academic space for reading, reference, and self-study.\n\nIt supports students and faculty with useful learning material, study-friendly seating, and an environment suited for focused preparation.",
     features: [
       "Reference Books",
       "Quiet Study Area",

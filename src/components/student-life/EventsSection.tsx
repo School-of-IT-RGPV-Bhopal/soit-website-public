@@ -118,7 +118,7 @@ const EventsSection = () => {
                 </h3>
 
                 <p className="
-                  text-foreground/80 relative text-justify text-base/relaxed
+                  text-foreground/80 relative whitespace-pre-line text-justify text-base/relaxed
                 ">
                   {event.description}
                 </p>
