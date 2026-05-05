@@ -34,7 +34,7 @@ export const facultyMentors = [
 
 export const projectLeaders = [
   {
-    name: 'Rachna Namdev Ma\'am',
+    name: 'Rachna Nagdev Ma\'am',
     role: 'Project Team Lead',
     badge: 'Team Lead',
     description: 'Coordinating all project activities, managing timelines, and ensuring seamless execution across all development phases',
