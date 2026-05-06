@@ -12,3 +12,4 @@ export default function GalleryPage() {
 
   return <Gallery />;
 }
+//This is the Gallery function 
