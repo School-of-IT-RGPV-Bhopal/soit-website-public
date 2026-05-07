@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 type AnalyticsData = {
-  pageViews: number;
-  countries: Array<{ country: string; users: number }>;
+  pageViewsAllTime: number;
+  pageViews30d: number;
+  countriesAllTime: Array<{ country: string; users: number }>;
+  countries30d: Array<{ country: string; users: number }>;
 };
 
 export default function FooterAnalyticsWidget() {
@@ -49,17 +51,17 @@ export default function FooterAnalyticsWidget() {
           flex flex-col gap-4 text-sm
           md:flex-row md:gap-8
         ">
-          {/* Total Visitors */}
+          {/* Total Visitors (All-Time) */}
           <div className="
             flex justify-between gap-4
             md:gap-6
           ">
-            <span className="text-gray-600">Visitors:</span>
+            <span className="text-gray-600">All-time Visitors:</span>
             {loading ? (
               <div className="h-4 w-16 animate-pulse rounded-sm bg-gray-300" />
             ) : (
               <span className="font-semibold text-gray-900">
-                {data?.pageViews?.toLocaleString() || "—"}
+                {data?.pageViewsAllTime?.toLocaleString() || "—"}
               </span>
             )}
           </div>
@@ -74,7 +76,7 @@ export default function FooterAnalyticsWidget() {
               <div className="h-4 w-20 animate-pulse rounded-sm bg-gray-300" />
             ) : (
               <span className="font-semibold text-gray-900">
-                {data?.countries?.[0]?.country || "—"}
+                {data?.countriesAllTime?.[0]?.country || "—"}
               </span>
             )}
           </div>

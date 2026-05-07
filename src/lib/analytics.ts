@@ -27,6 +27,8 @@ export function clearAggregateAnalyticsCache(
 ): void {
   cacheManager.delete(getCountriesCacheKey(propertyId, days));
   cacheManager.delete(getPageViewsCacheKey(propertyId, days));
+  cacheManager.delete(`analytics:pageviews:alltime:${propertyId}`);
+  cacheManager.delete(`analytics:countries:alltime:${propertyId}`);
 }
 
 export function initializeAnalyticsClient(): BetaAnalyticsDataClient {
@@ -108,7 +110,7 @@ export async function getCountryBreakdown(
           ],
           metrics: [
             {
-              name: "activeUsers",
+              name: "screenPageViews",
             },
           ],
           dimensions: [
@@ -119,7 +121,7 @@ export async function getCountryBreakdown(
           orderBys: [
             {
               metric: {
-                metricName: "activeUsers",
+                metricName: "screenPageViews",
               },
               desc: true,
             },
@@ -193,5 +195,115 @@ export async function getPageViews(
       }
     },
     30 // Cache for 30 minutes
+  );
+}
+
+export async function getAllTimePageViews(
+  propertyId: string
+): Promise<number> {
+  return withCache(
+    `analytics:pageviews:alltime:${propertyId}`,
+    async () => {
+      const client = initializeAnalyticsClient();
+
+      try {
+        const endDate = new Date();
+        // Start from a very old date to capture all-time data
+        const startDate = new Date("2020-01-01");
+
+        const response = await client.runReport({
+          property: `properties/${propertyId}`,
+          dateRanges: [
+            {
+              startDate: startDate.toISOString().split("T")[0],
+              endDate: endDate.toISOString().split("T")[0],
+            },
+          ],
+          metrics: [
+            {
+              name: "screenPageViews",
+            },
+          ],
+        });
+
+        if (response[0].rows && response[0].rows.length > 0) {
+          return parseInt(
+            response[0]?.rows[0]?.metricValues?.[0]?.value || "0",
+            10
+          );
+        }
+        return 0;
+      } catch (error) {
+        console.error("Error fetching all-time page views:", error);
+        throw error;
+      }
+    },
+    60 * 24 // Cache for 24 hours (historical data)
+  );
+}
+
+export async function getAllTimeCountryBreakdown(
+  propertyId: string
+): Promise<Array<{ country: string; users: number }>> {
+  return withCache(
+    `analytics:countries:alltime:${propertyId}`,
+    async () => {
+      const client = initializeAnalyticsClient();
+
+      try {
+        const endDate = new Date();
+        // Start from a very old date to capture all-time data
+        const startDate = new Date("2020-01-01");
+
+        const response = await client.runReport({
+          property: `properties/${propertyId}`,
+          dateRanges: [
+            {
+              startDate: startDate.toISOString().split("T")[0],
+              endDate: endDate.toISOString().split("T")[0],
+            },
+          ],
+          metrics: [
+            {
+              name: "screenPageViews",
+            },
+          ],
+          dimensions: [
+            {
+              name: "country",
+            },
+          ],
+          orderBys: [
+            {
+              metric: {
+                metricName: "screenPageViews",
+              },
+              desc: true,
+            },
+          ],
+          limit: 10,
+        });
+
+        const results: Array<{ country: string; users: number }> = [];
+
+        if (response[0].rows) {
+          response[0].rows.forEach((row) => {
+            const country =
+              row.dimensionValues?.[0]?.value || "Unknown";
+            const users = parseInt(
+              row.metricValues?.[0]?.value || "0",
+              10
+            );
+            results.push({ country, users });
+          });
+        }
+
+        return results;
+      } catch (error) {
+        console.error("Error fetching all-time country breakdown:", error);
+        throw error;
+      }
+    },
+    60 * 24 // Cache for 24 hours (historical data)
   );
 }

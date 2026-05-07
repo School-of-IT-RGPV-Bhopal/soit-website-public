@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 
 type AnalyticsData = {
-  pageViews: number;
-  countries: Array<{ country: string; users: number }>;
+  pageViews30d: number;
+  pageViewsAllTime: number;
+  countries30d: Array<{ country: string; users: number }>;
+  countriesAllTime: Array<{ country: string; users: number }>;
   lastUpdated: string;
 }
 
@@ -16,6 +18,8 @@ type ActiveUsersData = {
 type LiveStatsProps = {
   forceRefreshOnMount?: boolean;
 }
+
+type CountryViewType = "historical" | "last30days";
 
 const ACTIVE_USERS_REFRESH_MS = 180000;
 const STATS_REFRESH_MS = 900000;
@@ -29,6 +33,7 @@ export default function LiveStats({
   const [loading, setLoading] = useState(true);
   const [activeUsersLoading, setActiveUsersLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [countryView, setCountryView] = useState<CountryViewType>("historical");
 
   useEffect(() => {
     const fetchAnalytics = async (forceRefresh: boolean = false) => {
@@ -131,6 +136,19 @@ export default function LiveStats({
     return countryCodeMap[countryCode] || "🌍";
   };
 
+  const getCurrentCountries = (): Array<{ country: string; users: number }> => {
+    if (countryView === "historical") {
+      return data?.countriesAllTime || [];
+    } else {
+      return data?.countries30d || [];
+    }
+  };
+
+  const getTotalCountryUsers = (): number => {
+    const countries = getCurrentCountries();
+    return countries.reduce((sum, c) => sum + c.users, 0);
+  };
+
   if (error) {
     return (
       <div className="rounded-lg bg-red-50 p-6 text-center">
@@ -163,7 +181,7 @@ export default function LiveStats({
       <div
         className="
           grid grid-cols-1 gap-6
-          md:grid-cols-2
+          md:grid-cols-3
         "
       >
         {/* Active Users Card */}
@@ -178,6 +196,7 @@ export default function LiveStats({
               <p className="mb-2 text-sm font-semibold text-gray-600">
                 ACTIVE USERS NOW
               </p>
+              <p className="text-xs text-gray-500 mb-3">Real-time</p>
               {activeUsersLoading ? (
                 <div className="h-10 w-24 animate-pulse rounded-sm bg-gray-300" />
               ) : (
@@ -196,7 +215,39 @@ export default function LiveStats({
           </div>
         </div>
 
-        {/* Page Views Card */}
+        {/* Total Page Views (All-Time) Card */}
+        <div
+          className="
+            overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
+            from-green-50 to-emerald-50 p-8 shadow-lg
+          "
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="mb-2 text-sm font-semibold text-gray-600">
+                TOTAL PAGE VIEWS
+              </p>
+              <p className="text-xs text-gray-500 mb-3">All-time</p>
+              {loading ? (
+                <div className="h-10 w-32 animate-pulse rounded-sm bg-gray-300" />
+              ) : (
+                <p className="text-5xl font-bold text-green-600">
+                  {data?.pageViewsAllTime?.toLocaleString() ?? 0}
+                </p>
+              )}
+            </div>
+            <div
+              className="
+                flex size-16 items-center justify-center rounded-full
+                bg-green-100
+              "
+            >
+              <span className="text-3xl">📈</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Page Views Last 30 Days Card */}
         <div
           className="
             overflow-hidden rounded-2xl border border-gray-200 bg-linear-to-br
@@ -206,13 +257,14 @@ export default function LiveStats({
           <div className="flex items-start justify-between">
             <div>
               <p className="mb-2 text-sm font-semibold text-gray-600">
-                TOTAL PAGE VIEWS (30 DAYS)
+                PAGE VISITS (30 DAYS)
               </p>
+              <p className="text-xs text-gray-500 mb-3">Last 30 days</p>
               {loading ? (
                 <div className="h-10 w-32 animate-pulse rounded-sm bg-gray-300" />
               ) : (
                 <p className="text-5xl font-bold text-purple-600">
-                  {data?.pageViews?.toLocaleString() ?? 0}
+                  {data?.pageViews30d?.toLocaleString() ?? 0}
                 </p>
               )}
             </div>
@@ -228,16 +280,47 @@ export default function LiveStats({
         </div>
       </div>
 
-      {/* Top Countries Table */}
+      {/* Top Countries Table with Toggle */}
       <div
         className="
           overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg
         "
       >
         <div className="border-b border-gray-200 px-8 py-6">
-          <h3 className="text-xl font-bold text-gray-900">Top 5 Countries</h3>
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-xl font-bold text-gray-900">Top 5 Countries</h3>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setCountryView("historical")}
+                className={`
+                  px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  ${
+                    countryView === "historical"
+                      ? "bg-gray-900 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }
+                `}
+              >
+                Historical Trend
+              </button>
+              <button
+                onClick={() => setCountryView("last30days")}
+                className={`
+                  px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  ${
+                    countryView === "last30days"
+                      ? "bg-gray-900 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }
+                `}
+              >
+                Last 30 Days
+              </button>
+            </div>
+          </div>
           <p className="text-sm text-gray-600">
-            Visitor distribution by country (last 30 days)
+            Visitor distribution by country (
+            {countryView === "historical" ? "all-time" : "last 30 days"})
           </p>
         </div>
 
@@ -250,9 +333,9 @@ export default function LiveStats({
               />
             ))}
           </div>
-        ) : data && data.countries.length > 0 ? (
+        ) : getCurrentCountries().length > 0 ? (
           <div className="divide-y divide-gray-100">
-            {data.countries.map((country, index) => (
+            {getCurrentCountries().map((country, index) => (
               <div
                 key={index}
                 className="
@@ -276,11 +359,9 @@ export default function LiveStats({
                     {country.users}
                   </p>
                   <p className="text-xs text-gray-500">
-                    {(activeUsersData?.activeUsers ?? 0) > 0
+                    {getTotalCountryUsers() > 0
                       ? (
-                          ((country.users / (activeUsersData?.activeUsers ?? 0)) *
-                            100) *
-                          0.01
+                          ((country.users / getTotalCountryUsers()) * 100)
                         ).toFixed(1) + "%"
                       : "0%"}
                   </p>

@@ -3,6 +3,8 @@ import {
   clearAggregateAnalyticsCache,
   getCountryBreakdown,
   getPageViews,
+  getAllTimePageViews,
+  getAllTimeCountryBreakdown,
 } from "@lib/analytics";
 
 export const revalidate = 300; // Cache for 5 minutes
@@ -25,17 +27,21 @@ export async function GET(request: NextRequest) {
       clearAggregateAnalyticsCache(propertyId, 30);
     }
 
-    const [countries, pageViews] = await Promise.all([
+    const [countries30d, pageViews30d, countriesAllTime, pageViewsAllTime] = await Promise.all([
       getCountryBreakdown(propertyId, 30),
       getPageViews(propertyId, 30),
+      getAllTimeCountryBreakdown(propertyId),
+      getAllTimePageViews(propertyId),
     ]);
 
     return NextResponse.json(
       {
         success: true,
         data: {
-          pageViews,
-          countries: countries.slice(0, 5), // Top 5 countries
+          pageViews30d,
+          pageViewsAllTime,
+          countries30d: countries30d.slice(0, 5), // Top 5 countries (30 days)
+          countriesAllTime: countriesAllTime.slice(0, 5), // Top 5 countries (all-time)
           lastUpdated: new Date().toISOString(),
         },
       },
