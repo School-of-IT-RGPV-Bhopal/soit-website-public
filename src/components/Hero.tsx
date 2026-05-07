@@ -100,7 +100,7 @@ export default function Hero() {
                   AICTE Approved
                 </span>
               </div>
-              {/* <div
+              <div
                 className="
                   mb-4 flex items-center space-x-2
                   md:mb-8
@@ -122,9 +122,9 @@ export default function Hero() {
                     md:text-sm
                   "
                 >
-                  NAAC A++
+                  NAAC A+
                 </span>
-              </div> */}
+              </div>
             </div>
 
             <div
