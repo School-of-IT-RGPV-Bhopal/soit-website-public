@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { clearActiveUsersCache, getActiveUsers } from "@lib/analytics";
 
 export const revalidate = 180; // Cache for 3 minutes
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {

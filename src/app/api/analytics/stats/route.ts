@@ -6,6 +6,7 @@ import {
 } from "@lib/analytics";
 
 export const revalidate = 300; // Cache for 5 minutes
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
