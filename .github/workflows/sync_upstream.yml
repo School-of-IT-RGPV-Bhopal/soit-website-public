@@ -1,24 +1,17 @@
 name: Scheduled Upstream Sync for Main and Preview
 
-# ---------------------------------------------------------------------
-# 1. Workflow Triggers
-# ---------------------------------------------------------------------
 on:
-  # Triggers the workflow at 07:00 UTC or 12:30 PM IST every Monday and Thursday
   schedule:
+    # Runs at 12:30 PM IST (07:00 UTC) every Monday and Thursday
     - cron: '0 7 * * 1,4'
   
-  # Allows the workflow to be manually triggered from the 'Actions' tab in GitHub
   workflow_dispatch:
     inputs:
-      sync_dry_run: # Renamed for clarity: TRUE means DRY RUN (no push)
-        description: 'Dry Run Mode (Set to true to skip pushing changes)'
+      sync_dry_run:
+        description: 'Dry Run Mode (true = skip push)'
         type: boolean
         default: false
 
-# ---------------------------------------------------------------------
-# 2. Sync Job Definition
-# ---------------------------------------------------------------------
 jobs:
   sync_branches:
     name: Sync Main and Preview
@@ -28,23 +21,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          # fetch-depth: 0 is essential to get all branch history for syncing
           fetch-depth: 0
 
       - name: Perform Upstream Synchronization
-        uses: wei/git-sync@v4
+        uses: wei/git-sync@v3
         with:
-          # 1. CRITICAL: The PAT MUST be embedded in the source URL to read the private organization repo
-          source: 'https://${{ secrets.UPSTREAM_PAT }}@github.com/School-of-IT-RGPV-Bhopal/website.git'
-
-          # 2. List the specific branches to sync, separated by commas
-          source_branch: 'main,preview'
-
-          # 3. Target repository (your personal fork)
-          target: 'https://github.com/${{ github.repository }}.git'
-
-          # 4. Authentication: Use the default GITHUB_TOKEN to push to your fork
-          target_key: ${{ secrets.GITHUB_TOKEN }}
+          # Use the PAT for BOTH source and destination to ensure write permissions
+          source_repo: "https://${{ secrets.UPSTREAM_PAT }}@github.com/School-of-IT-RGPV-Bhopal/website.git"
+          source_branch: "main,preview"
           
-          # 5. Conditional Push Logic
-          push: ${{ github.event_name == 'schedule' || github.event.inputs.sync_dry_run != 'true' }}
+          # We use the full URL here for clarity and to ensure the PAT handles the push
+          destination_repo: "https://${{ secrets.UPSTREAM_PAT }}@github.com/Aradhya-Joshi/soit-rgpv-website.git"
+          destination_branch: "main,preview"
+
+          # Logic for pushing: Always push on schedule, or if dry_run is false during manual trigger
+          push: ${{ github.event_name == 'schedule' || github.event.inputs.sync_dry_run != true }}
