@@ -74,7 +74,7 @@ Use the **[Issues](../../issues)** tab to report bugs or request features. Selec
 ## Maintainers
 
 This repository is maintained by the **SoIT Student Council — Tech Secretary**, RGPV Bhopal.  
-For queries, open an issue with the `needs info` label or reach out via the council email: `<!-- council email -->`
+For queries, open an issue with the `needs info` label or reach out via the council email: `secretary.tech.sc@soitrgpv.ac.in`
 
 ---
 
