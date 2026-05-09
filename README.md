@@ -1,43 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SoIT Website
+
+> **School of Information Technology — Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal**  
+> Official public website of the School of Information Technology, RGPV · Open for community contributions
+
+---
+
+## About
+
+This repository hosts the source code for the official SoIT website. It is maintained by the **SoIT Student Council** and is open to contributions from any GitHub user through the Bug Bounty & Contribution Challenge.
+
+Found a bug? Have an idea? Want to contribute code? You're in the right place.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | <!-- e.g. Next.js / React --> |
+| Styling | <!-- e.g. Tailwind CSS --> |
+| Deployment | <!-- e.g. Vercel / GitHub Pages --> |
+| Package Manager | npm |
+
+---
 
 ## Getting Started
 
-
-First, run the development server:
-
 ```bash
+git clone https://github.com/<org>/soit-website-public.git
+cd soit-website-public
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+We welcome contributions of all sizes — bug fixes, new features, accessibility improvements, and documentation.
 
-To learn more about Next.js, take a look at the following resources:
+| Document | Description |
+|---|---|
+| [CONTRIBUTING_QUICKSTART.md](./CONTRIBUTING_QUICKSTART.md) | **Start here** — 6-step visual guide to fork, branch, commit, and raise a PR |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Full contribution guidelines, branch naming, commit conventions, PR checklist |
+| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Expected standards of conduct for all contributors |
+| [SoIT-SC-SOP-WEB-001](./docs/SoIT_Website_BugBounty_Contribution_SOP.docx) | Complete SOP document — detailed process, labels, SLA, and reward criteria |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> **New to open source?** Look for issues tagged [`good first issue`](../../issues?q=label%3A%22good+first+issue%22) — they are scoped and well-documented for first-time contributors.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome.
+---
 
-## Deploy on Vercel
+## Recognition
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Major contributions are rewarded. All merged contributors are acknowledged.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Tier | Contribution Type | Reward |
+|---|---|---|
+| 🥇 Major | New feature, critical bug fix, significant improvement | Credits page feature + college-issued certificate |
+| 🥈 Moderate | Bug fix, accessibility, content update | Credits page mention |
+| 🥉 Minor | Typo, small styling fix, minor tweak | README acknowledgment |
 
-## Contributions
+---
 
-All the changes must be done in preview branch
+## Reporting Issues
 
-## Our team
+Use the **[Issues](../../issues)** tab to report bugs or request features. Select the appropriate template and fill it in completely — incomplete reports may be closed without review.
+
+---
+
+## Maintainers
+
+This repository is maintained by the **SoIT Student Council — Tech Secretary**, RGPV Bhopal.  
+For queries, open an issue with the `needs info` label or reach out via the council email: `<!-- council email -->`
+
+---
+
+<p align="center">
+  Made with ♥ by the SoIT Student Council &nbsp;·&nbsp; RGPV, Bhopal
+</p>
