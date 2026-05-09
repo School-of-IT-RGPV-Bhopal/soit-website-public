@@ -17,9 +17,9 @@ Found a bug? Have an idea? Want to contribute code? You're in the right place.
 
 | Layer | Technology |
 |---|---|
-| Framework | <!-- e.g. Next.js / React --> |
-| Styling | <!-- e.g. Tailwind CSS --> |
-| Deployment | <!-- e.g. Vercel / GitHub Pages --> |
+| Framework | Next.js |
+| Styling | Tailwind CSS v4 |
+| Deployment | Vercel |
 | Package Manager | npm |
 
 ---
